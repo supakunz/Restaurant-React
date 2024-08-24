@@ -5,4 +5,10 @@
 }
 body{
   font-family: sans-serif;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none;
+}
+.container-section{
+  @apply w-[72rem] m-auto
 }

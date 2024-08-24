@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from '../Components/header/Header'
 
-const About = () => {
+const Ourteam = () => {
   return (
     <>
-      <Header header={'ABOUT'} />
+      <Header header={'OUR TEAMS'} />
     </>
   )
 }
 
-export default About
+export default Ourteam
