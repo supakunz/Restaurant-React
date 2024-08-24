@@ -11,6 +11,7 @@ export default {
         'yellowHover': '#ffb94f',
         'blackBlue': '#0f172b',
         'grayWhite': '#F4F4F4',
+        'grayLight': '#747373'
       },
       animation: {
         'spin-slow': 'spin 40s linear infinite',

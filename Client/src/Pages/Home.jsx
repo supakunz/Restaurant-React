@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Hero from '../Components/hero/Hero';
 import Service from '../Components/service/Service';
+import AboutPage from '../Components/about/AboutPage';
 
 const Home = () => {
   return (
@@ -33,6 +34,7 @@ const Home = () => {
         </Swiper>
       </section>
       <Service />
+      <AboutPage />
     </>
   )
 }
