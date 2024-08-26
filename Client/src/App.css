@@ -12,3 +12,34 @@ body{
 .container-section{
   @apply w-[72rem] m-auto
 }
+.text:before{
+  display: inline-block;
+  content: "";
+  position: relative;
+  width: 46px;
+  height: 2.5px;
+  background: #FEA116;
+  top: -8px;
+  left: -10px;
+}
+.text:after{
+  display: inline-block;
+  content: "";
+  position: relative;
+  width: 46px;
+  height: 2.5px;
+  background: #FEA116;
+  top: -8px;
+  left: 10px;
+}
+
+.textline:after{
+  display: inline-block;
+  content: "";
+  position: relative;
+  width: 46px;
+  height: 2.5px;
+  background: #FEA116;
+  top: -8px;
+  left: 10px;
+}

@@ -15,6 +15,9 @@ export default {
       },
       animation: {
         'spin-slow': 'spin 40s linear infinite',
+      },
+      transitionProperty: {
+        'max-height': 'max-height 1s'
       }
     },
   },

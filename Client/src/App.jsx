@@ -11,6 +11,7 @@ import Contact from './Pages/Contact'
 import Ourteam from './Pages/Ourteam'
 import Testimonial from './Pages/Testimonial'
 import Booking from './Pages/Booking'
+import Footer from './Components/footer/Footer'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/booking' element={<Booking />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )
