@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CartComment from '../cartComment/CartComment'
 import CommentData from '../assets/comment'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,6 +13,20 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const CommentPage = () => {
+
+  const [windowWidth, setWindowWidth] = useState(1)
+
+  const resizeWindow = () => {
+    if (window.innerWidth < 860) {
+      setWindowWidth(1)
+    } else setWindowWidth(3)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeWindow)
+    return () => window.removeEventListener("resize", resizeWindow);
+  }, [])
+
   return (
     <>
       <section className='bg-grayWhite py-[60px]'>
@@ -22,7 +36,7 @@ const CommentPage = () => {
             <h1 className='text-[40px] font-semibold'>Our Clients Say!!!</h1>
           </div>
           <Swiper
-            slidesPerView={3}
+            slidesPerView={windowWidth}
             spaceBetween={25}
             centeredSlides={true}
             loop={true}

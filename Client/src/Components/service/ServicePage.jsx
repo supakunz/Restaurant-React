@@ -7,7 +7,7 @@ const Service = () => {
     <>
       <section className='bg-grayWhite'>
         <div className="container-section">
-          <div className='grid grid-cols-4 gap-[1.2rem] py-[6rem]'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-[1.2rem] py-[6rem]'>
             {service_product.map((item) => {
               return <CartService name={item.name} icon={item.icon} />
             })}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import FoodItem from '../foodItem/FoodItem'
 import PopularMenu from '../assets/popular'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,6 +13,20 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const Popular = () => {
+
+  const [windowWidth, setWindowWidth] = useState(1)
+
+  const resizeWindow = () => {
+    if (window.innerWidth < 768) {
+      setWindowWidth(1)
+    } else setWindowWidth(3)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeWindow)
+    return () => window.removeEventListener("resize", resizeWindow);
+  }, [])
+
   return (
     <>
       <section className='bg-grayWhite h-[110vh] py-[60px]'>
@@ -22,7 +36,7 @@ const Popular = () => {
             <h1 className='text-[40px] font-semibold'>Most Popular Items</h1>
           </div>
           <Swiper
-            slidesPerView={3}
+            slidesPerView={windowWidth}
             spaceBetween={40}
             centeredSlides={true}
             loop={true}
@@ -47,7 +61,7 @@ const Popular = () => {
             })}
           </Swiper>
           <div className='flex justify-center my-5'>
-            <button className='p-[15px_30px] bg-yellow text-white text-[16px] hover:bg-yellowHover'>View More</button>
+            <button className='p-[13px_26px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white  hover:bg-yellowHover'>View More</button>
           </div>
         </div>
       </section >

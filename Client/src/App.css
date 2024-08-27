@@ -10,7 +10,7 @@ body{
   user-select:none;
 }
 .container-section{
-  @apply w-[72rem] m-auto
+  @apply max-w-[72rem] px-[30px] m-auto
 }
 .text:before{
   display: inline-block;
@@ -42,4 +42,5 @@ body{
   background: #FEA116;
   top: -8px;
   left: 10px;
+  color:#555555b3;
 }

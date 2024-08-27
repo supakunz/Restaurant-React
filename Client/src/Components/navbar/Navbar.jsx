@@ -1,31 +1,49 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import logo_nav from '../assets/image/logo.png'
 import { Link } from 'react-router-dom'
+import Hamburger from 'hamburger-react'
+
 
 const Navbar = () => {
 
+  const [isOpen, setOpen] = useState(false)
+  const [toggle, setToggle] = useState(false)
   const navRef = useRef()
+  const navMenuRef = useRef()
+  const miniMenuRef = useRef()
+  const arrowRef = useRef()
+
+  const handleToggle = () => {
+    if (toggle) {
+      miniMenuRef.current.classList.add('max-h-[250px]')
+      arrowRef.current.classList.add('rotate-90')
+    } else {
+      miniMenuRef.current.classList.remove('max-h-[250px]')
+      arrowRef.current.classList.remove('rotate-90')
+    }
+    setToggle(!toggle)
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        navRef.current.classList.add('bg-blackBlue')
+        navRef.current.classList.add('!bg-blackBlue')
       } if (window.scrollY < 50) {
-        navRef.current.classList.remove('bg-blackBlue')
+        navRef.current.classList.remove('!bg-blackBlue')
       }
     })
   }, [])
 
   return (
     <>
-      <nav ref={navRef} className='py-[5px] w-full fixed z-20 transition ease-linear duration-200'>
+      <nav ref={navRef} className='py-[5px] w-screen bg-[#0f172b] lg:bg-transparent fixed z-20 transition ease-linear duration-200'>
         <div className='flex items-center justify-between container-section'>
           <Link to={'/'} className='logo flex items-center gap-2'>
             <img className='w-[60px] ani' src={logo_nav} alt="" />
             <h1 className='text-[23px] text-white font-semibold'>RESTAURANT</h1>
           </Link>
           <div className="nav-menu flex text-[15px] text-white gap-[10px]">
-            <ul className='flex items-center justify-center'>
+            <ul className='hidden lg:flex items-center justify-center'>
               <Link to={'/'} className='p-[15px] hover:text-yellow transition duration-300'>HOME</Link>
               <Link to={'/about'} className='p-[15px] hover:text-yellow transition duration-300'>ABOUT</Link>
               <Link to={'/service'} className='p-[15px] hover:text-yellow transition duration-300'>SERVICE</Link>
@@ -59,6 +77,29 @@ const Navbar = () => {
               </div>
               <Link to={'/contact'} className='p-[15px] hover:text-yellow transition duration-300'>CONTACT</Link>
             </ul>
+            <div className='flex lg:hidden items-center'>
+              <Hamburger size={30} toggled={isOpen} toggle={setOpen} onToggle={toggle => toggle ? navMenuRef.current.classList.add('max-h-[550px]') : navMenuRef.current.classList.remove('max-h-[550px]')} />
+            </div>
+            <div ref={navMenuRef} className='absolute top-[4rem] left-0 w-full flex items-center justify-start bg-blackBlue overflow-hidden max-h-0' style={{ transition: "linear max-height 0.2s" }}>
+              <ul className='flex flex-col p-[42px]'>
+                <li className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>HOME</li>
+                <li className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>ABOUT</li>
+                <li className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>SERVICE</li>
+                <li className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>MENU</li>
+                <li className='flex items-start cursor-pointer relative right-2 mb-7 group' onClick={handleToggle}>
+                  <i ref={arrowRef} class="bx bx-chevron-right text-[18px] mt-[2px] transition duration-300 group-hover:text-yellow"></i>
+                  <span className='flex flex-col'>
+                    <p className='group-hover:text-yellow transition duration-300'>PAGES</p>
+                    <ul ref={miniMenuRef} className='pl-3 flex flex-col gap-6 cursor-pointer overflow-hidden max-h-0' style={{ transition: "linear max-height 0.2s" }}>
+                      <li className='mt-7 hover:text-yellow transition duration-300'>OurTeam</li>
+                      <li className='hover:text-yellow transition duration-300'>Testimonial</li>
+                      <li className='hover:text-yellow transition duration-300'>Booking</li>
+                    </ul>
+                  </span>
+                </li>
+                <li className='cursor-pointer hover:text-yellow transition duration-300'>CONTACT</li>
+              </ul>
+            </div>
             <div className='flex gap-[15px] items-center'>
               <button className='p-[10px] bg-yellow border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Singup</button>
               <button className='p-[10px_15px] border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Login</button>

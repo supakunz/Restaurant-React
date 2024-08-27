@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Hero from '../Components/hero/Hero';
-import Service from '../Components/service/Service';
+import Service from '../Components/service/ServicePage';
 import AboutPage from '../Components/about/AboutPage';
 import Popular from '../Components/popular/Popular';
 import Membership from '../Components/member/Membership';
