@@ -8,9 +8,10 @@ body{
   -webkit-user-select:none;
   -moz-user-select:none;
   user-select:none;
+  @apply bg-grayWhite
 }
 .container-section{
-  @apply max-w-[72rem] px-[30px] m-auto
+  @apply max-w-[80rem] px-[30px] m-auto
 }
 .text:before{
   display: inline-block;

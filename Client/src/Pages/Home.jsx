@@ -37,11 +37,11 @@ const Home = () => {
           })}
         </Swiper>
       </section>
-      <Service />
+      <Service showdata={4} />
       <AboutPage />
       <Popular />
       <Membership />
-      <Team />
+      <Team showdata={4} />
       <CommentPage />
     </>
   )

@@ -4,7 +4,7 @@ const CartComment = (props) => {
   return (
     <>
       <section>
-        <div className='bg-white flex flex-col gap-2 p-[30px] border-solid border-[2px]'>
+        <div className='bg-white flex flex-col gap-2 p-[30px] border-solid border-[2px] rounded-xl'>
           <i class="bx bxs-quote-left text-[40px] text-yellow"></i>
           <p className='text-[16px] text-grayLight mb-3'>{props.comment}</p>
           <div className='flex items-center gap-4'>

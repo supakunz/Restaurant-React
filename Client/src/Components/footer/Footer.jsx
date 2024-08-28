@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <>
       <section className='bg-blackBlue'>
-        <div className='grid grid-cols-4 container-section text-white pt-[40px] pb-[70px]'>
+        <div className='grid grid-cols-2 lg:grid-cols-4 container-section gap-y-6 text-white pt-[40px] pb-[70px]'>
           <div className='flex flex-col gap-5'>
             <h1 className='text-[25px] text-yellow textline' style={{ fontFamily: "Pacifico" }}>Company</h1>
             <ul className='text-[16px] inline-flex flex-col gap-[0.35rem]'>
@@ -48,7 +48,7 @@ const Footer = () => {
             <p className='text-[16px]'>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
             <form className='relative' action="">
               <input className='text-[15px] text-black p-4 rounded-lg w-[90%]' type="email" name="" id="" placeholder='Your email' required />
-              <button type='submit' className='p-[10px_20px] rounded-lg bg-yellow text-[15px] absolute top-[10%] right-[40px]'>SINGUP</button>
+              <button type='submit' className='p-[10px_20px] rounded-lg bg-yellow text-[15px] absolute top-[6.2px] right-[13%] lg:right-[14%]'>SINGUP</button>
             </form>
           </div>
         </div>

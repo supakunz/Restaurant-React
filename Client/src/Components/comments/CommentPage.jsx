@@ -12,12 +12,12 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-const CommentPage = () => {
+const CommentPage = ({ space }) => {
 
   const [windowWidth, setWindowWidth] = useState(1)
 
   const resizeWindow = () => {
-    if (window.innerWidth < 860) {
+    if (window.innerWidth < 900) {
       setWindowWidth(1)
     } else setWindowWidth(3)
   }
@@ -29,7 +29,7 @@ const CommentPage = () => {
 
   return (
     <>
-      <section className='bg-grayWhite py-[60px]'>
+      <section className={`bg-grayWhite pb-[100px] pt-[${space}]`}>
         <div className='container-section'>
           <div className='flex flex-col text-center mb-[60px]'>
             <p className='text-[20px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Testimonial</p>

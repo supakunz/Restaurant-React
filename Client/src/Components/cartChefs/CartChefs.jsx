@@ -3,9 +3,9 @@ import React from 'react'
 const CartChefs = (props) => {
   return (
     <>
-      <section>
-        <div className='flex flex-col items-center text-center pt-7 bg-white group overflow-hidden'>
-          <div className='w-[240px] rounded-full overflow-hidden mb-3'>
+      <section className='h-[345px]'>
+        <div className='flex flex-col items-center text-center pt-7 bg-white group overflow-hidden rounded-xl'>
+          <div className='w-[200px] rounded-full overflow-hidden mb-3'>
             <img className='group-hover:scale-[1.1] transition ease-linear duration-200' src={props.image} alt="" />
           </div>
           <div className='mb-4'>

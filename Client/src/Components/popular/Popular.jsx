@@ -29,7 +29,7 @@ const Popular = () => {
 
   return (
     <>
-      <section className='bg-grayWhite h-[110vh] py-[60px]'>
+      <section className='bg-grayWhite h-full py-[100px]'>
         <div className='container-section'>
           <div className='flex flex-col text-center mb-[100px]'>
             <p className='text-[20px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Food Menu</p>
