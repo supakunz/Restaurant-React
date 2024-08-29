@@ -25,7 +25,7 @@ const BookTable = () => {
               <div onClick={handlePlay} className='animationBtnPlay'><i class='bx bxs-right-arrow p-5 rounded-full bg-yellow text-[45px]'></i></div>
             </div>
           </div>
-          <div className='flex flex-col gap-6 bg-blackBlue p-7'>
+          <div className='flex flex-col gap-6 bg-blackBlue p-7 z-10'>
             <div className='text-center text-white text-[25px]'>
               <p className='text-yellow text' style={{ fontFamily: "Pacifico" }}>Reservation</p>
               <h1 className='text-[40px] font-semibold'>Book A Table Online</h1>
@@ -35,7 +35,7 @@ const BookTable = () => {
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="email" name="" placeholder='Your email...' />
             </div>
             <div className='flex gap-6'>
-              <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="date" name="" />
+              <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none text-gray-400' type="date" name="" />
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="text" name="" placeholder='No of people' />
             </div>
             <textarea className='p-2 h-[70px] focus:border-yellow border-[1px] border-solid focus:outline-none' name="" id="" placeholder='Special Request' style={{ resize: "none" }}></textarea>
@@ -44,9 +44,9 @@ const BookTable = () => {
         </div>
       </div>
       <div ref={shadowRef} className="fixed top-0 left-0 w-full h-full bg-[#000000ea] z-0 opacity-0 transition-all duration-300">
-        <div ref={boxRef} className="flex items-center justify-center h-full relative -top-full transition-all ease-in-out duration-[0.4s]">
-          <div onClick={handlePlay} className="text-white text-[40px] absolute top-7 right-8 cursor-pointer "><i className='bx bx-x bg-yellow p-2' ></i></div>
-          <video className='w-[800px]' src={video_cooking} id="video" autoPlay loop muted></video>
+        <div ref={boxRef} className="flex items-center justify-center h-full relative -top-full transition-all ease-in-out duration-[0.4s] px-5">
+          <div onClick={handlePlay} className="text-white text-[36px] lg:text-[38px] absolute top-7 right-8 cursor-pointer "><i className='bx bx-x bg-yellow p-1 lg:p-2' ></i></div>
+          <video className='w-[540px] lg:w-[610px]' src={video_cooking} id="video" autoPlay loop muted></video>
         </div>
       </div>
     </section>

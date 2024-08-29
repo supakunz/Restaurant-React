@@ -24,6 +24,10 @@ const Navbar = () => {
     setToggle(!toggle)
   }
 
+  const handleonTop = (e) => {
+    e.window.scrollY(0)
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -38,16 +42,16 @@ const Navbar = () => {
     <>
       <nav ref={navRef} className='py-[5px] w-screen bg-[#0f172b] lg:bg-transparent fixed z-20 transition ease-linear duration-200'>
         <div className='flex items-center justify-between container-section'>
-          <Link to={'/'} className='logo flex items-center gap-2'>
+          <Link to={'/'} onClick={(e) => e.window.scrollY(0)} className='logo flex items-center gap-2'>
             <img className='w-[60px] ani' src={logo_nav} alt="" />
             <h1 className='text-[23px] text-white font-semibold'>RESTAURANT</h1>
           </Link>
           <div className="nav-menu flex text-[15px] text-white gap-[10px]">
             <ul className='hidden lg:flex items-center justify-center'>
-              <Link to={'/'} className='p-[15px] hover:text-yellow transition duration-300'>HOME</Link>
-              <Link to={'/about'} className='p-[15px] hover:text-yellow transition duration-300'>ABOUT</Link>
-              <Link to={'/service'} className='p-[15px] hover:text-yellow transition duration-300'>SERVICE</Link>
-              <Link to={'/menu'} className='p-[15px] hover:text-yellow transition duration-300'>MENU</Link>
+              <Link to={'/'} onClick={(e) => e.window.scrollY(0)} className='p-[15px] hover:text-yellow transition duration-300'>HOME</Link>
+              <Link to={'/about'} onClick={(e) => e.window.scrollY(0)} className='p-[15px] hover:text-yellow transition duration-300'>ABOUT</Link>
+              <Link to={'/service'} onClick={(e) => e.window.scrollY(0)} className='p-[15px] hover:text-yellow transition duration-300'>SERVICE</Link>
+              <Link to={'/menu'} onClick={(e) => e.window.scrollY(0)} className='p-[15px] hover:text-yellow transition duration-300'>MENU</Link>
               <div class="mx-auto flex w-full items-center justify-center">
                 <div class="group relative cursor-pointer">
                   <div class="flex items-center justify-between gap-2 p-[15px]">
@@ -63,19 +67,19 @@ const Navbar = () => {
                   </div>
                   <div
                     class="invisible opacity-0 absolute z-50 text-[15px] flex w-[9rem] top-[3.9rem] flex-col bg-gray-100 py-1 px-4 transition-all duration-300 text-gray-800 shadow-xl group-hover:visible group-hover:opacity-100">
-                    <Link to={'/ourteam'} class="my-2 block border-b border-gray-100 py-1 text-gray-500 hover:text-black md:mx-2 ">
+                    <Link to={'/ourteam'} onClick={(e) => e.window.scrollY(0)} class="my-2 block border-b border-gray-100 py-1 text-gray-500 hover:text-black md:mx-2 ">
                       Our Team
                     </Link>
-                    <Link to={'/testimonial'} class="my-2 block border-b border-gray-100 py-1 text-gray-500 hover:text-black md:mx-2">
+                    <Link to={'/testimonial'} onClick={(e) => e.window.scrollY(0)} class="my-2 block border-b border-gray-100 py-1 text-gray-500 hover:text-black md:mx-2">
                       Testimonial
                     </Link>
-                    <Link to={'/booking'} class="my-2 block border-b border-gray-100 py-1 text-gray-500 hover:text-black md:mx-2">
+                    <Link to={'/booking'} onClick={(e) => e.window.scrollY(0)} class="my-2 block border-b border-gray-100 py-1 text-gray-500 hover:text-black md:mx-2">
                       Booking
                     </Link>
                   </div>
                 </div>
               </div>
-              <Link to={'/contact'} className='p-[15px] hover:text-yellow transition duration-300'>CONTACT</Link>
+              <Link to={'/contact'} onClick={(e) => e.window.scrollY(0)} className='p-[15px] hover:text-yellow transition duration-300'>CONTACT</Link>
             </ul>
             <div className='flex lg:hidden items-center'>
               <Hamburger size={30} toggled={isOpen} toggle={setOpen} onToggle={toggle => toggle ? navMenuRef.current.classList.add('max-h-[550px]') : navMenuRef.current.classList.remove('max-h-[550px]')} />
