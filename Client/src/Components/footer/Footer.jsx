@@ -52,7 +52,7 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        <div className='text-white text-[15px] flex items-center justify-between container-section border-solid border-[#555555b3] border-t-[1px] pt-4 pb-[4rem]'>
+        <div className='text-white text-[15px] flex items-center justify-between container-section border-solid border-[#555555b3] border-t-[1px] pt-4 pb-[3rem]'>
           <div>
             <p className='mb-2'>© CCW Kitchen, All Rights Reserved.</p>
             <p>Inspiration Design By : <span className='cursor-pointer text-yellow'>HTML Codex</span></p>

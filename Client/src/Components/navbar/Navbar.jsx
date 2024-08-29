@@ -105,8 +105,8 @@ const Navbar = () => {
               </ul>
             </div>
             <div className='flex gap-[15px] items-center'>
-              <button className='p-[10px] bg-yellow border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Singup</button>
-              <button className='p-[10px_15px] border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Login</button>
+              <Link to={'/singup'} onClick={(e) => e.window.scrollY(0)} className='p-[10px] bg-yellow border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Singup</Link>
+              <Link to={'/login'} onClick={(e) => e.window.scrollY(0)} className='p-[10px_15px] border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Login</Link>
             </div>
           </div>
         </div>

@@ -13,6 +13,9 @@ import Testimonial from './Pages/Testimonial'
 import Booking from './Pages/Booking'
 import Footer from './Components/footer/Footer'
 import ScrollTop from './Components/scrollTop/ScrollTop'
+import Singup from './Pages/Singup'
+import Login from './Pages/Login'
+import Member from './Pages/Member'
 
 
 function App() {
@@ -32,6 +35,9 @@ function App() {
           <Route path='/testimonial' element={<Testimonial />} />
           <Route path='/booking' element={<Booking />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/membership' element={<Member />} />
+          <Route path='/singup' element={<Singup />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
         <ScrollTop />
         <Footer />

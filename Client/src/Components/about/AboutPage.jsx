@@ -3,6 +3,7 @@ import about_image_1 from '../assets/image/aboutImg1_1.jpg'
 import about_image_2 from '../assets/image/aboutImg1_2.jpg'
 import about_image_3 from '../assets/image/aboutImg1_3.jpg'
 import about_image_4 from '../assets/image/aboutImg1_4.jpg'
+import { Link } from 'react-router-dom'
 
 const AboutPage = () => {
   return (
@@ -45,7 +46,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div>
-              <button className='p-[14px_28px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white hover:bg-yellowHover'>Read More</button>
+              <Link to={'/about'} onClick={(e) => e.window.scrollY(0)} className='p-[14px_28px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white hover:bg-yellowHover'>Read More</Link>
             </div>
           </div>
         </div>

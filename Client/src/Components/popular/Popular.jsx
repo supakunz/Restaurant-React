@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const Popular = () => {
 
@@ -61,7 +62,7 @@ const Popular = () => {
             })}
           </Swiper>
           <div className='flex justify-center my-5'>
-            <button className='p-[13px_26px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white  hover:bg-yellowHover'>View More</button>
+            <Link to={'/menu'} onClick={(e) => e.window.scrollY(0)} className='p-[13px_26px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white  hover:bg-yellowHover'>View More</Link>
           </div>
         </div>
       </section >
