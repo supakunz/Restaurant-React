@@ -86,22 +86,22 @@ const Navbar = () => {
             </div>
             <div ref={navMenuRef} className='absolute top-[4rem] left-0 w-full flex items-center justify-start bg-blackBlue overflow-hidden max-h-0' style={{ transition: "linear max-height 0.2s" }}>
               <ul className='flex flex-col p-[42px]'>
-                <li className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>HOME</li>
-                <li className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>ABOUT</li>
-                <li className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>SERVICE</li>
-                <li className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>MENU</li>
+                <Link to={'/'} onClick={(e) => e.window.scrollY(0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>HOME</Link>
+                <Link to={'/about'} onClick={(e) => e.window.scrollY(0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>ABOUT</Link>
+                <Link to={'/service'} onClick={(e) => e.window.scrollY(0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>SERVICE</Link>
+                <Link to={'/menu'} onClick={(e) => e.window.scrollY(0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>MENU</Link>
                 <li className='flex items-start cursor-pointer relative right-2 mb-7 group' onClick={handleToggle}>
                   <i ref={arrowRef} class="bx bx-chevron-right text-[18px] mt-[2px] transition duration-300 group-hover:text-yellow"></i>
                   <span className='flex flex-col'>
                     <p className='group-hover:text-yellow transition duration-300'>PAGES</p>
                     <ul ref={miniMenuRef} className='pl-3 flex flex-col gap-6 cursor-pointer overflow-hidden max-h-0' style={{ transition: "linear max-height 0.2s" }}>
-                      <li className='mt-7 hover:text-yellow transition duration-300'>OurTeam</li>
-                      <li className='hover:text-yellow transition duration-300'>Testimonial</li>
-                      <li className='hover:text-yellow transition duration-300'>Booking</li>
+                      <Link to={'/ourteam'} onClick={(e) => e.window.scrollY(0)} className='mt-7 hover:text-yellow transition duration-300'>OurTeam</Link>
+                      <Link to={'/testimonial'} onClick={(e) => e.window.scrollY(0)} className='hover:text-yellow transition duration-300'>Testimonial</Link>
+                      <Link to={'/booking'} onClick={(e) => e.window.scrollY(0)} className='hover:text-yellow transition duration-300'>Booking</Link>
                     </ul>
                   </span>
                 </li>
-                <li className='cursor-pointer hover:text-yellow transition duration-300'>CONTACT</li>
+                <Link to={'/contact'} onClick={(e) => e.window.scrollY(0)} className='cursor-pointer hover:text-yellow transition duration-300'>CONTACT</Link>
               </ul>
             </div>
             <div className='flex gap-[15px] items-center'>

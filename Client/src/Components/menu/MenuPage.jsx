@@ -34,7 +34,7 @@ const MenuPage = () => {
             </div>
             <div className='flex'>
               <input className='p-2 outline-none border-solid border-[2px] w-full' type="text" placeholder='Search name here...' />
-              <button className='bg-yellow text-[20px] h-[40px] w-[40px]'><i class='bx bx-search-alt-2'></i></button>
+              <button className='bg-yellow text-[20px] h-[43px] w-[40px]'><i class='bx bx-search-alt-2'></i></button>
             </div>
           </div>
           <div>
