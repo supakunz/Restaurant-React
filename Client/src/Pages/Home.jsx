@@ -32,7 +32,7 @@ const Home = () => {
         >
           {hero_product.map((item) => {
             return <SwiperSlide>
-              <Hero content={item.content} button={item.button} banner={item.banner} />
+              <Hero content={item.content} button={item.button} banner={item.banner} link={item.link} />
             </SwiperSlide>
           })}
         </Swiper>

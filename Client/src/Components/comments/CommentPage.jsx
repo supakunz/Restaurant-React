@@ -29,7 +29,7 @@ const CommentPage = ({ space }) => {
 
   return (
     <>
-      <section className={`bg-grayWhite pb-[100px] pt-[${space}]`}>
+      <section className={`bg-grayWhite pb-[100px] ${space ? 'pt-[100px]' : null}`}>
         <div className='container-section'>
           <div className='flex flex-col text-center mb-[60px]'>
             <p className='text-[20px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Testimonial</p>

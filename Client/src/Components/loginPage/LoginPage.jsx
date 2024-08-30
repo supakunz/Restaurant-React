@@ -21,7 +21,7 @@ const LoginPage = () => {
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none text-gray-400' type="email" name="" placeholder='Email...' required />
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="password" name="" placeholder='password...' required />
               <button className='p-3 bg-yellow text-white'>Sing Up</button>
-              <p className='text-white'>Already have an account? <Link to={'/login'} className='text-yellow cursor-pointer'>Login here</Link></p>
+              <p className='text-white'>Already have an account? <Link to={'/singup'} onClick={(e) => e.window.scrollY(0)} className='text-yellow cursor-pointer'>Login here</Link></p>
             </form>
           </div>
         </div>

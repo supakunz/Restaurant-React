@@ -14,6 +14,10 @@ let hero_product = [
       text_1: "Book a table",
       text_2: "Menu"
     },
+    link: {
+      to_1: "/booking",
+      to_2: "/menu"
+    },
     banner: {
       banner_image: banner_image_1,
       bg_image: bg_image_1
@@ -26,6 +30,10 @@ let hero_product = [
       text_1: "Sing up",
       text_2: "Login"
     },
+    link: {
+      to_1: "/singup",
+      to_2: "/login"
+    },
     banner: {
       banner_image: banner_image_2,
       bg_image: bg_image_2
@@ -37,6 +45,10 @@ let hero_product = [
     button: {
       text_1: "Our Team",
       text_2: "Service"
+    },
+    link: {
+      to_1: "/ourteam",
+      to_2: "/service"
     },
     banner: {
       banner_image: banner_image_3,

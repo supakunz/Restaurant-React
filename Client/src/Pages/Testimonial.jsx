@@ -6,7 +6,7 @@ const Testimonial = () => {
   return (
     <>
       <Header header={'TESTIMONIAL'} />
-      <CommentPage space={'100px'} />
+      <CommentPage space={true} />
     </>
   )
 }
