@@ -3,7 +3,7 @@ import React from 'react'
 const CartMenu = (props) => {
   return (
     <section>
-      <div className='flex flex-col items-center text-center p-4 gap-y-4 bg-white'>
+      <div className='flex flex-col items-center text-center p-6 gap-y-4 bg-white rounded-xl shadow-sm'>
         <img className='w-[110px]' src={props.image} alt="" />
         <p className='p-[5px_10px] text-blackBlue text-[12px] bg-yellow rounded-full'>{props.category}</p>
         <h3 className='text-[19px] text-blackBlue font-semibold'>{props.name}</h3>

@@ -1,8 +1,23 @@
 import React from 'react'
 import show_image from '../assets/image/aboutImg1_4.jpg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import { createUser } from '../../store/UserSlice'
+
 
 const SingupPage = () => {
+
+  const dispatch = useDispatch()
+  const { register, handleSubmit, reset } = useForm()
+  const navigate = useNavigate()
+
+  const onSubmit = (data) => {
+    dispatch(createUser(data))
+    reset()
+    navigate('/login')
+  }
+
   return (
     <section>
       <div className='container-section py-[100px]'>
@@ -19,19 +34,19 @@ const SingupPage = () => {
             </div>
             <form className='flex flex-col gap-6' action="">
               <div className='flex gap-6 mt-4'>
-                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="text" name="" placeholder='Firstname...' required />
-                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="text" name="" placeholder='Lastname...' required />
+                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register('firstname')} type="text" name="firstname" placeholder='Firstname...' required />
+                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register('lastname')} type="text" name="lastname" placeholder='Lastname...' required />
               </div>
               <div className='flex gap-6'>
-                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none text-gray-400' type="email" name="" placeholder='Email...' required />
-                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="text" name="" placeholder='Phone(0000000000)...' required />
+                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none text-gray-400' {...register('email')} type="email" name="email" placeholder='Email...' required />
+                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="text" {...register('phone')} name="phone" placeholder='Phone(0000000000)...' required />
               </div>
-              <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="password" name="" placeholder='password...' required />
+              <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register('password')} type="password" name="password" placeholder='password...' required />
               <div className='flex gap-4'>
                 <input type="checkbox" name="" id="" required />
                 <p className='text-white text-[14px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa fuga.</p>
               </div>
-              <button className='p-3 bg-yellow text-white'>Sing Up</button>
+              <button onClick={handleSubmit(onSubmit)} className='p-3 bg-yellow text-white'>Sing Up</button>
               <p className='text-white'>Create an account? <Link to={'/login'} onClick={(e) => e.window.scrollY(0)} className='text-yellow cursor-pointer'>Click here</Link></p>
             </form>
           </div>
