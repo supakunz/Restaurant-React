@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import PopularMenu from '../assets/popular'
+import Allmenu from '../assets/all_menu'
 import CartMenu from '../cartMenu/CartMenu'
 import axios from 'axios'
 import { fetchFood } from '../../store/foodSlice'
@@ -63,7 +63,7 @@ const MenuPage = () => {
           </div>
           <div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-[3rem] sm:mt-[4rem] gap-6 min-h-[50vh]'>
-              {PopularMenu.filter((item) => category == 'All' ? item : (item.category == `${category}`)).filter((item) => rates == 'All' ? item : (item.rate == `${rates}`)).filter((item) => search == '' ? item : item.name.toLowerCase().includes(search)).map((item) => (
+              {Allmenu.filter((item) => category == 'All' ? item : (item.category == `${category}`)).filter((item) => rates == 'All' ? item : (item.rate == `${rates}`)).filter((item) => search == '' ? item : item.name.toLowerCase().includes(search)).map((item) => (
                 <CartMenu name={item.name} image={item.image} details={item.details} category={item.category} price={item.price} />
               ))}
             </div>
