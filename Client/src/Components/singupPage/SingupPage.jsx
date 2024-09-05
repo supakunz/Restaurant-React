@@ -16,6 +16,7 @@ const SingupPage = () => {
     dispatch(createUser(data))
     reset()
     navigate('/login')
+    // console.log(data)
   }
 
   return (
@@ -47,7 +48,7 @@ const SingupPage = () => {
                 <p className='text-white text-[14px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa fuga.</p>
               </div>
               <button onClick={handleSubmit(onSubmit)} className='p-3 bg-yellow text-white'>Sing Up</button>
-              <p className='text-white'>Create an account? <Link to={'/login'} onClick={(e) => e.window.scrollY(0)} className='text-yellow cursor-pointer'>Click here</Link></p>
+              <p className='text-white'>Create an account? <Link to={'/login'} onClick={() => window.scrollTo(0, 0)} className='text-yellow cursor-pointer'>Click here</Link></p>
             </form>
           </div>
         </div>

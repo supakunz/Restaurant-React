@@ -10,12 +10,12 @@ const Footer = () => {
           <div className='flex flex-col gap-5'>
             <h1 className='text-[25px] text-yellow textline' style={{ fontFamily: "Pacifico" }}>Company</h1>
             <ul className='text-[16px] inline-flex flex-col gap-[0.35rem]'>
-              <Link to={'/'} onClick={(e) => e.window.scrollY(0)} ><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Home</span></Link>
-              <Link to={'/about'} onClick={(e) => e.window.scrollY(0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>About Us</span></Link>
-              <Link to={'/contact'} onClick={(e) => e.window.scrollY(0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Contact Us</span></Link>
-              <Link to={'/'} onClick={(e) => e.window.scrollY(0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Reservation</span></Link>
-              <Link to={'/'} onClick={(e) => e.window.scrollY(0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Privacy Policy</span></Link>
-              <Link to={'/'} onClick={(e) => e.window.scrollY(0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Terms & Condition</span></Link>
+              <Link to={'/'} onClick={() => window.scrollTo(0, 0)} ><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Home</span></Link>
+              <Link to={'/about'} onClick={() => window.scrollTo(0, 0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>About Us</span></Link>
+              <Link to={'/contact'} onClick={() => window.scrollTo(0, 0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Contact Us</span></Link>
+              <Link to={'/'} onClick={() => window.scrollTo(0, 0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Reservation</span></Link>
+              <Link to={'/'} onClick={() => window.scrollTo(0, 0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Privacy Policy</span></Link>
+              <Link to={'/'} onClick={() => window.scrollTo(0, 0)}><span className='hover:text-yellow relative left-0 hover:left-[5px]' style={{ transition: "left 0.2s" }}><i class="bx bx-chevron-right mr-[0.4rem] text-[18px]"></i>Terms & Condition</span></Link>
             </ul>
           </div>
           <div className='flex flex-col gap-5'>

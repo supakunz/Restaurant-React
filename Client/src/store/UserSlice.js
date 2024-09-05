@@ -1,35 +1,35 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// Create user
 export const createUser = createAsyncThunk(
   'user/createUser',
   async (userdata) => {
-    const req = await axios.post('https://66d189ca62816af9a4f40211.mockapi.io/users', userdata)
+    const req = await axios.post(`http://localhost:8000/api/register`, userdata)
     const response = await req.data
-    // const token = 'jx0SfMR3KB0Kz7Maa7ztJuCdqKaY51b80sbCaRUf9jXyUcCDKMyWWRaa16KF3mwy'
-    // localStorage.setItem('user', JSON.stringify(response))
     return response;
   }
 )
 
+//Login user
 export const checkUser = createAsyncThunk(
   'user/checkUser',
   async (userdata) => {
-    // const req = await axios.post('') // checkdata login ต้องส่ง data ไปตรวจสอบ
-    const data = await JSON.parse(localStorage.getItem('user'))
-    if (data) {
-      if (data.email == userdata.email) {
-        if (data.password == userdata.password) {
-          const token = 'jx0SfMR3KB0Kz7Maa7ztJuCdqKaY51b80sbCaRUf9jXyUcCDKMyWWRaa16KF3mwy'
-          localStorage.setItem('token', JSON.stringify(token))
-          return alert('Login!!!')
-        } else {
-          return alert('Password is wrong!!!')
-        }
-      } else {
-        return alert('Email is wrong!!')
-      }
-    }
+    const req = await axios.post(`http://localhost:8000/api/login`, userdata) // checkdata login ต้องส่ง data 
+    const response = req.data
+    // const token = response.token
+    // localStorage.setItem('token', token)
+    return response
+  }
+)
+
+//Get DataUser
+export const getUser = createAsyncThunk(
+  'user/getUser',
+  async (token) => {
+    const req = await axios.get(`http://localhost:8000/api/users`, { headers: { "Authorization": `Bearer ${token}` } })
+    const response = req.data
+    return response
   }
 )
 
@@ -38,7 +38,14 @@ const UserSlice = createSlice({
   initialState: {
     loading: false,
     user: null,
-    error: null
+    token: null,
+    error: null,
+  },
+  reducers: {
+    logOut: (state) => {
+      state.token = null
+      localStorage.removeItem('token')
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -55,7 +62,17 @@ const UserSlice = createSlice({
           state.loading = false;
           if (action.type.includes("createUser")) {
             state.user = action.payload
-            console.log(current(state))
+            // console.log(current(state))
+          }
+          if (action.type.includes("checkUser")) {
+            state.token = action.payload.token
+            localStorage.setItem('token', state.token)
+          }
+          if (action.type.includes("getUser")) {
+            if (state.token == null) {
+              state.token = localStorage.getItem('token')
+            }
+            state.user = action.payload
           }
         }
       )
@@ -64,9 +81,17 @@ const UserSlice = createSlice({
         (state, action) => {
           state.loading = false;
           state.error = action.error.message
+          if (action.error.message === "Request failed with status code 401") {
+            state.error = 'Invalid email Please try again.'
+          }
+          if (action.error.message === "Request failed with status code 400") {
+            state.error = 'Invalid password Please try again.'
+          }
         }
       )
   }
 })
+
+export const { logOut } = UserSlice.actions;
 
 export default UserSlice.reducer;

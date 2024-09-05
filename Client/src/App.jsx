@@ -16,6 +16,7 @@ import ScrollTop from './Components/scrollTop/ScrollTop'
 import Singup from './Pages/Singup'
 import Login from './Pages/Login'
 import Member from './Pages/Member'
+import Account from './Pages/Account'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route path='/membership' element={<Member />} />
           <Route path='/singup' element={<Singup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/account' element={<Account />} />
         </Routes>
         <ScrollTop />
         <Footer />

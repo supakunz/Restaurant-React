@@ -46,7 +46,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div>
-              <Link to={'/about'} onClick={(e) => e.window.scrollY(0)} className='p-[14px_28px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white hover:bg-yellowHover'>Read More</Link>
+              <Link to={'/about'} onClick={() => window.scrollTo(0, 0)} className='p-[14px_28px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white hover:bg-yellowHover'>Read More</Link>
             </div>
           </div>
         </div>

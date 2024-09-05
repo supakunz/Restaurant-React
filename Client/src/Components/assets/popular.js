@@ -1,86 +1,342 @@
-import BeefBurger from "./image/menuImg/burger3.png"
-import CheeseBeef from "./image/menuImg/burger6.png"
-import BBQBeef from "./image/menuImg/burger9.png"
-import Chocolate from "./image/menuImg/drink7.png"
-import Crispy from "./image/menuImg/fried5.png"
-import MeatLovers from "./image/menuImg/pizza6.png"
-import BeefSteak from "./image/menuImg/steak2.png"
-import RibeyeSteak from "./image/menuImg/steak5.png"
-
 
 let PopularMenu = [
+
   {
-    id: 1,
+    id: "1",
+    name: "Pork Burger",
+    category: "Burger",
+    image: "/menu/burger1.png",
+    price: "5.00",
+    rate: "4.5"
+  },
+  {
+    id: "2",
+    name: "Chicken Burger",
+    category: "Burger",
+    image: "/menu/burger2.png",
+    price: "5.50",
+    rate: "4"
+  },
+  {
+    id: "3",
     name: "Beef Burger",
-    image: BeefBurger,
-    details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, fugiat",
     category: "Burger",
+    image: "/menu/burger3.png",
     price: "6.00",
-    stars: "5",
+    rate: "5"
   },
   {
-    id: 2,
-    name: "Cheese Beef Burger",
-    image: CheeseBeef,
-    details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, fugiat",
+    id: "4",
+    name: "Spicy Pork Burger",
     category: "Burger",
-    price: "6.50",
-    stars: "5",
-  },
-  {
-    id: 3,
-    name: "BBQ Beef Burger",
-    image: BBQBeef,
-    details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, fugiat",
-    category: "Burger",
-    price: "6.50",
-    stars: "5",
-  },
-  {
-    id: 4,
-    name: "Chocolate Milkeshake",
-    image: Chocolate,
-    details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, fugiat",
-    category: "Drink",
-    price: "4.00",
-    stars: "5",
-  },
-  {
-    id: 5,
-    name: "Crispy Dried Chicken",
-    image: Crispy,
-    details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, fugiat",
-    category: "Fried",
+    image: "/menu/burger4.png",
     price: "5.75",
-    stars: "5",
+    rate: "3.5"
   },
   {
-    id: 6,
-    name: "Meat Lovers Pizza",
-    image: MeatLovers,
-    details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, fugiat",
+    id: "5",
+    name: "Grilled Chicken Burger",
+    category: "Burger",
+    image: "/menu/burger5.png",
+    price: "6.00",
+    rate: "4.5"
+  },
+  {
+    id: "6",
+    name: "Cheese Beef Burger",
+    category: "Burger",
+    image: "/menu/burger6.png",
+    price: "6.50",
+    rate: "5"
+  },
+  {
+    id: "7",
+    name: "Double Pork Burger",
+    category: "Burger",
+    image: "/menu/burger7.png",
+    price: "7.00",
+    rate: "4"
+  },
+  {
+    id: "8",
+    name: "Crispy Chicken Burger",
+    category: "Burger",
+    image: "/menu/burger8.png",
+    price: "5.75",
+    rate: "3"
+  },
+  {
+    id: "9",
+    name: "BBQ Beef Burger",
+    category: "Burger",
+    image: "/menu/burger9.png",
+    price: "6.50",
+    rate: "5"
+  },
+  {
+    id: "10",
+    name: "Honey Mustard Chicken Burger",
+    category: "Burger",
+    image: "/menu/burger10.png",
+    price: "6.00",
+    rate: "4"
+  },
+  {
+    id: "11",
+    name: "Classic Pork Burger",
+    category: "Burger",
+    image: "/menu/burger11.png",
+    price: "5.00",
+    rate: "4"
+  },
+  {
+    id: "12",
+    name: "Lemonade",
+    category: "Drink",
+    image: "/menu/drink3.png",
+    price: "2.50",
+    rate: "3.5"
+  },
+  {
+    id: "13",
+    name: "Pineapple Juice",
+    category: "Drink",
+    image: "/menu/drink4.png",
+    price: "3.00",
+    rate: "4.5"
+  },
+  {
+    id: "14",
+    name: "Mixed Fruit Juice",
+    category: "Drink",
+    image: "/menu/drink6.png",
+    price: "3.50",
+    rate: "3.5"
+  },
+  {
+    id: "15",
+    name: "Orange Juice",
+    category: "Drink",
+    image: "/menu/drink5.png",
+    price: "3.00",
+    rate: "4"
+  },
+  {
+    id: "16",
+    name: "Chocolate Milkshake",
+    category: "Drink",
+    image: "/menu/drink7.png",
+    price: "4.00",
+    rate: "5"
+  },
+  {
+    id: "17",
+    name: "Coca-Cola",
+    category: "Drink",
+    image: "/menu/drink2.png",
+    price: "1.50",
+    rate: "4.5"
+  },
+  {
+    id: "18",
+    name: "Pepsi",
+    category: "Drink",
+    image: "/menu/drink1.png",
+    price: "1.50",
+    rate: "4.5"
+  },
+  {
+    id: "19",
+    name: "Fried Chicken",
+    category: "Fried",
+    image: "/menu/fried1.png",
+    price: "5.00",
+    rate: "4"
+  },
+  {
+    id: "20",
+    name: "French Fries",
+    category: "Fried",
+    image: "/menu/fried2.png",
+    price: "3.50",
+    rate: "3.5"
+  },
+  {
+    id: "21",
+    name: "Gyoza",
+    category: "Fried",
+    image: "/menu/fried3.png",
+    price: "4.00",
+    rate: "4"
+  },
+  {
+    id: "22",
+    name: "Spicy Fried Chicken",
+    category: "Fried",
+    image: "/menu/fried4.png",
+    price: "5.50",
+    rate: "3"
+  },
+  {
+    id: "23",
+    name: "Cheese French Fries",
+    category: "Fried",
+    image: "/menu/fried6.png",
+    price: "4.00",
+    rate: "3.5"
+  },
+  {
+    id: "24",
+    name: "Crispy Fried Chicken",
+    category: "Fried",
+    image: "/menu/fried5.png",
+    price: "5.75",
+    rate: "5"
+  },
+  {
+    id: "25",
+    name: "Margherita Pizza",
     category: "Pizza",
+    image: "/menu/pizza1.png",
+    price: "8.00",
+    rate: "4"
+  },
+  {
+    id: "26",
+    name: "Pepperoni Pizza",
+    category: "Pizza",
+    image: "/menu/pizza2.png",
+    price: "9.00",
+    rate: "4.5"
+  },
+  {
+    id: "27",
+    name: "BBQ Chicken Pizza",
+    category: "Pizza",
+    image: "/menu/pizza3.png",
+    price: "9.50",
+    rate: "4.5"
+  },
+  {
+    id: "28",
+    name: "Hawaiian Pizza",
+    category: "Pizza",
+    image: "/menu/pizza4.png",
+    price: "8.50",
+    rate: "4"
+  },
+  {
+    id: "29",
+    name: "Veggie Pizza",
+    category: "Pizza",
+    image: "/menu/pizza5.png",
+    price: "8.00",
+    rate: "3.5"
+  },
+  {
+    id: "30",
+    name: "Meat Lovers Pizza",
+    category: "Pizza",
+    image: "/menu/pizza6.png",
     price: "10.00",
-    stars: "5",
+    rate: "5"
   },
   {
-    id: 7,
+    id: "31",
+    name: "Cheese Pizza",
+    category: "Pizza",
+    image: "/menu/pizza7.png",
+    price: "7.50",
+    rate: "3"
+  },
+  {
+    id: "32",
+    name: "Buffalo Chicken Pizza",
+    category: "Pizza",
+    image: "/menu/pizza8.png",
+    price: "9.50",
+    rate: "4.5"
+  },
+  {
+    id: "33",
+    name: "Supreme Pizza",
+    category: "Pizza",
+    image: "/menu/pizza9.png",
+    price: "10.50",
+    rate: "4"
+  },
+  {
+    id: "34",
+    name: "Grilled Chicken Steak",
+    category: "Steak",
+    image: "/menu/steak1.png",
+    price: "12.00",
+    rate: "4.5"
+  },
+  {
+    id: "35",
     name: "Beef Steak",
-    image: BeefSteak,
-    details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, fugiat",
     category: "Steak",
+    image: "/menu/steak2.png",
     price: "15.00",
-    stars: "5",
+    rate: "5"
   },
   {
-    id: 8,
-    name: "Ribeye Steak",
-    image: RibeyeSteak,
-    details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, fugiat",
+    id: "36",
+    name: "Pork Steak",
     category: "Steak",
-    price: "18.00",
-    stars: "5",
+    image: "/menu/steak3.png",
+    price: "10.00",
+    rate: "4"
   },
+  {
+    id: "37",
+    name: "BBQ Chicken Steak",
+    category: "Steak",
+    image: "/menu/steak4.png",
+    price: "12.50",
+    rate: "4"
+  },
+  {
+    id: "38",
+    name: "Ribeye Steak",
+    category: "Steak",
+    image: "/menu/steak5.png",
+    price: "18.00",
+    rate: "5"
+  },
+  {
+    id: "39",
+    name: "Pork Chop Steak",
+    category: "Steak",
+    image: "/menu/steak6.png",
+    price: "11.00",
+    rate: "4"
+  },
+  {
+    id: "40",
+    name: "Garlic Chicken Steak",
+    category: "Steak",
+    image: "/menu/steak7.png",
+    price: "13.00",
+    rate: "3.5"
+  },
+  {
+    id: "41",
+    name: "Sirloin Steak",
+    category: "Steak",
+    image: "/menu/steak8.png",
+    price: "16.00",
+    rate: "4.5"
+  },
+  {
+    id: "42",
+    name: "Teriyaki Pork Steak",
+    category: "Steak",
+    image: "/menu/steak9.png",
+    price: "10.50",
+    rate: "3.5"
+  }
 ]
 
 export default PopularMenu;

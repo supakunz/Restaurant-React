@@ -1,25 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import show_image from '../assets/image/aboutImg1_1.jpg'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { checkUser } from '../../store/UserSlice'
 
 const LoginPage = () => {
 
   const dispatch = useDispatch()
+  const { token, error } = useSelector((state) => state.user)
   const { register, handleSubmit, reset } = useForm()
   const navigate = useNavigate()
-  const token = localStorage.getItem('token')
 
   const onSubmit = (data) => {
     dispatch(checkUser(data))
-    reset()
+  }
+
+  useEffect(() => {
     if (token) {
       navigate('/');
       window.scrollTo(0, 0);
+    } else if (error) {
+      alert(error)
+      reset()
     }
-  }
+  }, [token, error])
 
   return (
     <section>
@@ -39,7 +44,7 @@ const LoginPage = () => {
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none text-gray-400' {...register("email")} type="email" name="email" placeholder='Email...' required />
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="password" {...register("password")} name="password" placeholder='password...' required />
               <button onClick={handleSubmit(onSubmit)} className='p-3 bg-yellow text-white'>Sing Up</button>
-              <p className='text-white'>Already have an account? <Link to={'/singup'} onClick={(e) => e.window.scrollY(0)} className='text-yellow cursor-pointer'>Login here</Link></p>
+              <p className='text-white'>Already have an account? <Link to={'/singup'} onClick={() => window.scrollTo(0, 0)} className='text-yellow cursor-pointer'>Login here</Link></p>
             </form>
           </div>
         </div>

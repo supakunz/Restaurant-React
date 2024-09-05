@@ -62,7 +62,7 @@ const Popular = () => {
             })}
           </Swiper>
           <div className='flex justify-center my-5'>
-            <Link to={'/menu'} onClick={(e) => e.window.scrollY(0)} className='p-[13px_26px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white  hover:bg-yellowHover'>View More</Link>
+            <Link to={'/menu'} onClick={() => window.scrollTo(0, 0)} className='p-[13px_26px] lg:p-[15px_30px] text-[15px] lg:text-[16px] bg-yellow text-white  hover:bg-yellowHover'>View More</Link>
           </div>
         </div>
       </section >

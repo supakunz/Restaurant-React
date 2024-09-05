@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:8888"],
+    origin: ["http://localhost:5173"], // **  อนุญาตให้เฉพาะ localhost นี้เท่านั้นในการส่ง req **
   })
 );
 app.use(cookieParser());
@@ -45,12 +45,15 @@ const initMySQL = async () => {
 // Register
 app.post('/api/register', async (req, res) => {
   try {
-    const { email, password } = req.body // ดึงค่าจาก Object {email, password}
+    const { firstname, lastname, email, phone, password } = req.body // ดึงค่าจาก Object {email, password}
 
     // hashPassword --> ป้องpassword เมื่อโดน hack
     const passwordHash = await bcrypt.hash(password, 10) // (password, salt (ใส่ number or string ก็ได้) --> เป็น random number ให้รหัสมีความ uniq )
     const userData = {
+      firstname,
+      lastname,
       email, // email: email --> key ชื่อเหมือน value ใส่ตัวเดียว
+      phone,
       password: passwordHash // password: password --> key ชื่อเหมือน value ใส่ตัวเดียว
     }
     //ต้องตรวจสอบว่ามี email ซ้ำกันไหมที่ database โดยมี 2 วิธี (**Mysql**)
@@ -79,7 +82,7 @@ app.post('/api/login', async (req, res) => {
       return false
     }
 
-    // create jwt token
+    // // create jwt token
     const token = jwt.sign({ email, role: "user" }, secret, { expiresIn: '1h' }) // ( payload , secretkey, option)
 
     res.json({ message: "login success", token })
@@ -107,8 +110,8 @@ app.get('/api/users', async (req, res) => {
       if (!checkEmail) {
         throw { message: "user not found" }
       }
-      const response = await conn.query('select * from users')
-      res.json({ status: "success", data: response[0] })
+      // const response = await conn.query('select * from users')
+      res.json({ status: "success", data: checkEmail[0] })
     }
   } catch (error) {
     console.log('error', error)
