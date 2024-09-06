@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkUser } from '../../store/UserSlice'
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
 
@@ -20,9 +21,20 @@ const LoginPage = () => {
     if (token) {
       navigate('/');
       window.scrollTo(0, 0);
+      toast.success('Login successful', {
+        position: "top-center",
+        autoClose: 2000,
+        pauseOnHover: false,
+        // theme: "colored",
+      })
     } else if (error) {
-      alert(error)
-      reset()
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 2000,
+        theme: "colored",
+        pauseOnHover: false,
+      })
+      // reset()
     }
   }, [token, error])
 

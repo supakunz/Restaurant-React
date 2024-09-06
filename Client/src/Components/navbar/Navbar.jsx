@@ -2,15 +2,21 @@ import React, { useEffect, useRef, useState } from 'react'
 import logo_nav from '../assets/image/logo.png'
 import { Link } from 'react-router-dom'
 import Hamburger from 'hamburger-react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import SlideBar from '../slidebar/SlideBar'
+import { loadItem } from '../../store/cartSlice'
 
 const Navbar = () => {
 
   const [isOpen, setOpen] = useState(false)
   const [toggle, setToggle] = useState(false)
   const [checkToken, setCheckToken] = useState(false)
+  const [slidebar, setSlidebar] = useState(false)
   const token = useSelector((state) => state.user.token)
   const localtoken = localStorage.getItem('token')
+  const dispatch = useDispatch()
+  const cart = useSelector((state) => state.cartlist.cart) // **เรียกใช้ทำให้ rerender component **
+  const localcart = JSON.parse(localStorage.getItem('cart'))
   const navRef = useRef()
   const navMenuRef = useRef()
   const miniMenuRef = useRef()
@@ -33,6 +39,7 @@ const Navbar = () => {
         navRef.current.classList.add('!bg-blackBlue')
       } if (window.scrollY < 50) {
         navRef.current.classList.remove('!bg-blackBlue')
+        setSlidebar(false)
       }
     })
   }, [])
@@ -43,6 +50,11 @@ const Navbar = () => {
     }
     setCheckToken(false)
   }, [token])
+
+  useEffect(() => {
+    dispatch(loadItem())
+  }, [])
+
 
   return (
     <>
@@ -112,7 +124,7 @@ const Navbar = () => {
             </div>
             {checkToken || localtoken ? (
               <div className='flex gap-[15px] items-center'>
-                <a onClick={() => window.scrollTo(0, 0)} className='cursor-pointer p-[9px] bg-yellow border-soLinkd border-[1px] flex items-center justify-center border-yellow rounded-md hover:bg-yellowHover transition duration-300 relative'><span className='absolute -top-2 -right-2 bg-red-500 rounded-full w-[20px] h-[20px] text-center text-[13px]'>0</span> <i class='bx bxs-cart-alt cartIcon text-[20px]'></i></a>
+                <a onClick={() => { setSlidebar(!slidebar) }} className='cursor-pointer p-[9px] bg-yellow border-soLinkd border-[1px] flex items-center justify-center border-yellow rounded-md hover:bg-yellowHover transition duration-300 relative'><span className='absolute -top-2 -right-2 bg-red-500 rounded-full w-[20px] h-[20px] text-center text-[13px]'>{localcart ? localcart.length : 0}</span> <i class='bx bxs-cart-alt cartIcon text-[20px]'></i></a>
                 <a onClick={() => window.scrollTo(0, 0)} className='cursor-pointer p-[9px] bg-yellow border-soLinkd border-[1px] flex items-center justify-center border-yellow rounded-md hover:bg-yellowHover transition duration-300 relative'><span className='absolute -top-2 -right-2 bg-red-500 rounded-full w-[20px] h-[20px] text-center text-[13px]'>0</span><i class='bx bxs-heart wishlistIcon text-[20px]'></i></a>
                 <Link to={'/account'} onClick={() => window.scrollTo(0, 0)} className='p-[9px] bg-yellow border-soLinkd border-[1px] flex items-center justify-center border-yellow rounded-md hover:bg-yellowHover transition duration-300'><i class='bx bxs-user text-[20px]'></i></Link>
               </div>
@@ -126,6 +138,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <SlideBar toggle={slidebar} />
     </>
   )
 }

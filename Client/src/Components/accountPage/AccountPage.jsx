@@ -10,7 +10,8 @@ const AccountPage = () => {
   const dispatch = useDispatch()
   const [userData, setUserData] = useState([])
   const navigate = useNavigate()
-  const token = localStorage.getItem('token')
+  const token = useSelector((state) => state.user.token)
+  const localtoken = localStorage.getItem('token')
 
   const handleLogout = () => {
     dispatch(logOut())
@@ -20,7 +21,7 @@ const AccountPage = () => {
   }
 
   useEffect(() => {
-    dispatch(getUser(token)).then((res) => setUserData(res.payload.data))
+    dispatch(getUser(localtoken)).then((res) => setUserData(res.payload.data))
   }, [])
 
   return (

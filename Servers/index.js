@@ -102,7 +102,7 @@ app.get('/api/users', async (req, res) => {
       console.log("Token :", authToken)
       // ** 2.check ว่า token ถูกต้องไหม
       const user = jwt.verify(authToken, secret) // ถ้าไม่ถูกจะ throw error เลย
-      // console.log(user)
+      console.log(user)
       // มั่นใจได้ว่า token ถูกต้องแล้ว
       // หรือจะเข็ค email อีกก็ได้
       const [checkEmail] = await conn.query('select * from users where email = ?', user.email)
@@ -112,6 +112,25 @@ app.get('/api/users', async (req, res) => {
       }
       // const response = await conn.query('select * from users')
       res.json({ status: "success", data: checkEmail[0] })
+    }
+  } catch (error) {
+    console.log('error', error)
+    res.status(403).json({ message: 'authentication fail', error })
+  }
+})
+
+// Add Cart
+app.patch('/api/cart', async (req, res) => {
+  try {
+    const cart = req.body.cart
+    const authHeader = req.headers['authorization']
+    if (authHeader) {
+      const authToken = authHeader.split(" ")[1]
+      const user = jwt.verify(authToken, secret)
+      //Add Cart
+      const Addcart = await conn.query(`UPDATE users SET cart = JSON_SET(cart, '$.cart', ?) WHERE email = ?`, [cart, user.email])
+      console.log(req.body)
+      res.json({ message: "success" })
     }
   } catch (error) {
     console.log('error', error)

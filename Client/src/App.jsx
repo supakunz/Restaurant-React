@@ -20,8 +20,6 @@ import Account from './Pages/Account'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <BrowserRouter>

@@ -1,6 +1,20 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addCart } from '../../store/cartSlice'
 
 const CartMenu = (props) => {
+
+  const dispatch = useDispatch()
+  const token = localStorage.getItem('token')
+
+  const handleAddcart = () => {
+    if (!token) {
+      return alert('Please login to continue')
+    }
+    dispatch(addCart(props))
+  }
+
+
   return (
     <section>
       <div className='flex flex-col items-center text-center p-6 gap-y-4 bg-white rounded-xl shadow-sm'>
@@ -16,9 +30,9 @@ const CartMenu = (props) => {
           <i className='bx bxs-star'></i>
         </div>
         <div className='flex gap-4'>
-          <i class='bx bx-show-alt text-white text-[20px] p-[5px] bg-blackBlue rounded-md cursor-pointer transition ease-linear duration-100 hover:scale-[1.2] hover:text-yellowHover'></i>
-          <i class='bx bx-cart-add text-white text-[20px] p-[5px] bg-blackBlue rounded-md cursor-pointer transition ease-linear duration-100 hover:scale-[1.2] hover:text-yellowHover' ></i>
-          <i class='bx bx-heart text-white text-[20px] p-[5px] bg-blackBlue rounded-md cursor-pointer transition ease-linear duration-100 hover:scale-[1.2] hover:text-yellowHover' ></i>
+          <i className='bx bx-show-alt text-white text-[20px] p-[5px] bg-blackBlue rounded-md cursor-pointer transition ease-linear duration-100 hover:scale-[1.2] hover:text-yellowHover'></i>
+          <i onClick={handleAddcart} className='bx bx-cart-add text-white text-[20px] p-[5px] bg-blackBlue rounded-md cursor-pointer transition ease-linear duration-100 hover:scale-[1.2] hover:text-yellowHover' ></i>
+          <i className='bx bx-heart text-white text-[20px] p-[5px] bg-blackBlue rounded-md cursor-pointer transition ease-linear duration-100 hover:scale-[1.2] hover:text-yellowHover' ></i>
         </div>
       </div>
     </section>
