@@ -12,7 +12,7 @@ const cartSlice = createSlice({
       if (localStorage.getItem('cart')) {
         state.cart = [...JSON.parse(localStorage.getItem('cart'))]
       }
-      state.cart.push(action.payload)
+      state.cart = [...state.cart, action.payload]  // state.cart.push(action.payload)
       localStorage.setItem('cart', JSON.stringify(state.cart))
       // console.log(current(state))
     },

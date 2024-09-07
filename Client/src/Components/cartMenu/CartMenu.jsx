@@ -1,18 +1,28 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../store/cartSlice'
+import { toast } from 'react-toastify';
+
 
 const CartMenu = (props) => {
 
   const dispatch = useDispatch()
   const token = localStorage.getItem('token')
+  const cart = JSON.parse(localStorage.getItem('cart'))
 
   const handleAddcart = () => {
     if (!token) {
-      return alert('Please login to continue')
+      return toast.error('Please login to continue', {
+        position: "bottom-left",
+        autoClose: 2000,
+        theme: "colored",
+        pauseOnHover: false,
+      })
     }
     dispatch(addCart(props))
+    // console.log(cart)
   }
+
 
 
   return (

@@ -39,7 +39,7 @@ const SingupPage = () => {
                 <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register('lastname')} type="text" name="lastname" placeholder='Lastname...' required />
               </div>
               <div className='flex gap-6'>
-                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none text-gray-400' {...register('email')} type="email" name="email" placeholder='Email...' required />
+                <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register('email')} type="email" name="email" placeholder='Email...' required />
                 <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="text" {...register('phone')} name="phone" placeholder='Phone(0000000000)...' required />
               </div>
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register('password')} type="password" name="password" placeholder='password...' required />

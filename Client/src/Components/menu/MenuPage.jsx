@@ -64,7 +64,7 @@ const MenuPage = () => {
           <div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-[3rem] sm:mt-[4rem] gap-6 min-h-[50vh]'>
               {Allmenu.filter((item) => category == 'All' ? item : (item.category == `${category}`)).filter((item) => rates == 'All' ? item : (item.rate == `${rates}`)).filter((item) => search == '' ? item : item.name.toLowerCase().includes(search)).map((item) => (
-                <CartMenu id={item.id} name={item.name} image={item.image} details={item.details} category={item.category} price={item.price} />
+                <CartMenu id={item.id} name={item.name} image={item.image} details={item.details} category={item.category} price={item.price} number={0} />
               ))}
             </div>
           </div>
