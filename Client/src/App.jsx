@@ -17,6 +17,8 @@ import Singup from './Pages/Singup'
 import Login from './Pages/Login'
 import Member from './Pages/Member'
 import Account from './Pages/Account'
+import Cart from './Pages/Cart'
+import CheckOut from './Pages/CheckOut'
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
           <Route path='/singup' element={<Singup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/account' element={<Account />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/chechout' element={<CheckOut />} />
         </Routes>
         <ScrollTop />
         <Footer />

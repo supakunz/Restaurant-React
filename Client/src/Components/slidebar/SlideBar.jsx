@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CartSlidebar from './CartSlidebar'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const SlideBar = ({ toggle }) => {
 
@@ -17,7 +18,6 @@ const SlideBar = ({ toggle }) => {
 
   useEffect(() => {
     getTotalPrice()
-    // console.log(newArry)
   }, [itemCart])
 
   return (
@@ -32,8 +32,12 @@ const SlideBar = ({ toggle }) => {
           <div className='border-solid border-t-[1px] border-black '>
             <div className='flex justify-between items-center text-[20px] my-4'><p>Sub Total</p><p>${total.toFixed(2)}</p></div>
             <div className='flex justify-between items-center gap-4 text-white'>
-              <button className='bg-yellow w-full h-[2.3rem] rounded-md hover:bg-yellowHover'>Cart</button>
-              <button className='bg-yellow w-full h-[2.3rem] rounded-md hover:bg-yellowHover'>Check out</button>
+              <Link to={'/cart'} className='flex-1'>
+                <button className='bg-yellow w-full h-[2.3rem] rounded-md hover:bg-yellowHover'>Cart</button>
+              </Link>
+              <Link to={'/chechout'} className='flex-1'>
+                <button className='bg-yellow w-full h-[2.3rem] rounded-md hover:bg-yellowHover'>Check out</button>
+              </Link>
             </div>
           </div>
         </div>
