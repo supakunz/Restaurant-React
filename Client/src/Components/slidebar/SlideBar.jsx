@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CartSlidebar from './CartSlidebar'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -25,8 +25,8 @@ const SlideBar = ({ toggle }) => {
       <section>
         <div className={`fixed bg-white h-screen w-[26rem] top-[70px] ${toggle ? 'right-0' : '-right-[30rem]'} z-10 p-5 transition-all duration-300 shadow-2xl`}>
           <div className='max-h-[30rem] overflow-scroll px-3'>
-            {itemCart.filter((obj1, i, arr) => arr.findIndex(obj2 => (obj2.id === obj1.id)) === i).map((item, index) => {
-              return <CartSlidebar position={index} name={item.name} category={item.category} price={item.price} image={item.image} />
+            {itemCart.filter((obj1, i, arr) => arr.findIndex(obj2 => (obj2.id === obj1.id)) === i).map((item) => {
+              return <CartSlidebar name={item.name} category={item.category} price={item.price} image={item.image} />
             })}
           </div>
           <div className='border-solid border-t-[1px] border-black '>

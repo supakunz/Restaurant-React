@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { removeCart } from '../../store/cartSlice'
 
-const CartSlidebar = ({ name, category, price, image, position }) => {
+const CartSlidebar = ({ name, category, price, image }) => {
 
   const dispatch = useDispatch()
   const cart = JSON.parse(localStorage.getItem('cart'))
@@ -22,7 +22,7 @@ const CartSlidebar = ({ name, category, price, image, position }) => {
         <div className='flex justify-between w-[135px]'>
           <p className='text-[15px]'>x {total}</p>
           <p className='text-[15px]'>$ {(priceNumber * total).toFixed(2)}</p>
-          <i onClick={() => dispatch(removeCart(position))} className='bx bxs-trash bg-red-500 text-white text-[17px] p-2 rounded-md cursor-pointer hover:bg-red-400'></i>
+          <i onClick={() => dispatch(removeCart(name))} className='bx bxs-trash bg-red-500 text-white text-[17px] p-2 rounded-md cursor-pointer hover:bg-red-400'></i>
         </div>
       </div>
     </>
