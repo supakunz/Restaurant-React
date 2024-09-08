@@ -20,7 +20,7 @@ body{
   width: 46px;
   height: 2.5px;
   background: #FEA116;
-  top: -8px;
+  top: -4px;
   left: -10px;
 }
 .text:after{
@@ -30,7 +30,7 @@ body{
   width: 46px;
   height: 2.5px;
   background: #FEA116;
-  top: -8px;
+  top: -4px;
   left: 10px;
 }
 
@@ -41,7 +41,7 @@ body{
   width: 46px;
   height: 2.5px;
   background: #FEA116;
-  top: -8px;
+  top: -4px;
   left: 10px;
   color:#555555b3;
 }

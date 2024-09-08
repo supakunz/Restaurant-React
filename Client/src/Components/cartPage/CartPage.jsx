@@ -26,17 +26,17 @@ const CartPage = () => {
       <section>
         <div className='container-section py-[100px]'>
           <div className='text-center'>
-            <p className='text-yellow text-[15px] lg:text-[17px] text' style={{ fontFamily: "Pacifico" }}>CART</p>
+            <p className='text-yellow text-[18px] lg:text-[20px] text' style={{ fontFamily: "Pacifico" }}>Cart</p>
             <h1 className='text-[35px] lg:text-[40px] font-semibold'>Your Cart</h1>
           </div>
-          <div className='mt-10'>
-            <table className="table-auto w-full text-center ">
+          <div className='mt-10  overflow-scroll max-h-[31.4rem]'>
+            <table className="table-auto w-full text-center min-w-[43rem] ">
               <thead className='bg-blackBlue text-white text-[14px] lg:text-[16px]'>
                 <tr >
-                  <th className='py-4'>Image</th>
+                  <th className='py-4 px-4'>Image</th>
                   <th>Product</th>
-                  <th>Category</th>
-                  <th>Price</th>
+                  <th className='px-2'>Category</th>
+                  <th className='px-3'>Price</th>
                   <th>Quantity</th>
                   <th>SubTotal</th>
                   <th>Cancel</th>
@@ -47,7 +47,7 @@ const CartPage = () => {
                   <tr>
                     <td className='border border-[#cdcdcd] '>
                       <div className='flex justify-center items-center py-3'>
-                        <img src={item.image} className='w-[60px] lg:w-[65px]' alt="" />
+                        <img src={item.image} className='w-[50px] md:w-[60px] lg:w-[65px]' alt="" />
                       </div>
                     </td>
                     <td className='border border-[#cdcdcd] text-[14px] lg:text-[16px]'>{item.name}</td>
@@ -69,7 +69,7 @@ const CartPage = () => {
                     <td className='border border-[#cdcdcd] text-[14px] lg:text-[16px]'>{(Number(item.price) * (cart.filter((data) => data.name == item.name).length)).toFixed(2)}$</td>
                     <td className='border border-[#cdcdcd]'>
                       <div>
-                        <i onClick={() => dispatch(removeCart(index))} className='bx bxs-trash bg-red-500 text-white text-[22px] lg:text-[25px] p-3 rounded-md cursor-pointer hover:bg-red-400'></i>
+                        <i onClick={() => dispatch(removeCart(index))} className='bx bxs-trash bg-red-500 text-white text-[20px] lg:text-[25px] p-2 lg:p-[0.6rem] rounded-md cursor-pointer hover:bg-red-400'></i>
                       </div>
                     </td>
                   </tr>
