@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import logo_nav from '../assets/image/logo.png'
+import logo_nav from '../assets/image/logov3.png'
 import { Link } from 'react-router-dom'
 import Hamburger from 'hamburger-react'
 import { useDispatch, useSelector } from 'react-redux'
