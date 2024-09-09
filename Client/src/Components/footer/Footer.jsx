@@ -54,8 +54,8 @@ const Footer = () => {
         </div>
         <div className='text-white text-[13px] lg:text-[15px] flex flex-col sm:flex-row items-center gap-6 sm:gap-0 justify-between container-section border-solid border-[#555555b3] border-t-[1px] pt-4 pb-[3rem]'>
           <div>
-            <p className='mb-2'>© CCW Kitchen, All Rights Reserved.</p>
-            <p>Inspiration Design By : <span className='cursor-pointer text-yellow'>HTML Codex</span></p>
+            <p className='mb-2'>© GG Kitchen, All Rights Reserved.</p>
+            <p>Inspiration Design By : <a className='cursor-pointer text-yellow' href='https://www.free-css.com/free-css-templates/page290/restoran' target="_blank">HTML Codex</a></p>
           </div>
           <div>
             <ul className='flex gap-1 sm:gap-3'>

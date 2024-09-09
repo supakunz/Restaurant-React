@@ -26,7 +26,7 @@ const AboutPage = () => {
           </div>
           <div className="right-content flex flex-col justify-center">
             <h3 className='text-[21px] lg:text-[25px] text-yellow text' style={{ fontFamily: "Pacifico" }}>About Us</h3>
-            <h1 className='text-[31px] lg:text-[35px] font-semibold mb-[20px]'>Welcome to CCW Restaurant</h1>
+            <h1 className='text-[31px] lg:text-[35px] font-semibold mb-[20px]'>Welcome to GG Restaurant</h1>
             <p className='text-[14px] lg:text-[16px] text-grayLight mb-[20px]'>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
             <p className='text-[14px] lg:text-[16px] text-grayLight mb-[20px]'>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
             <div className='flex mb-[50px] h-[60px] gap-2'>
