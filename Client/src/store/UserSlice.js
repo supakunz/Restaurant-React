@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const URL = import.meta.env.VITE_API_URL
+
 // Create user
 export const createUser = createAsyncThunk(
   'user/createUser',
   async (userdata) => {
-    const req = await axios.post(`http://localhost:8000/api/register`, userdata)
+    const req = await axios.post(`${URL}/api/register`, userdata)
     const response = await req.data
     return response;
   }
@@ -15,7 +17,7 @@ export const createUser = createAsyncThunk(
 export const checkUser = createAsyncThunk(
   'user/checkUser',
   async (userdata) => {
-    const req = await axios.post(`http://localhost:8000/api/login`, userdata) // checkdata login ต้องส่ง data 
+    const req = await axios.post(`${URL}/api/login`, userdata) // checkdata login ต้องส่ง data 
     const response = req.data
     // const token = response.token
     // localStorage.setItem('token', token)
@@ -27,7 +29,7 @@ export const checkUser = createAsyncThunk(
 export const getUser = createAsyncThunk(
   'user/getUser',
   async (token) => {
-    const req = await axios.get(`http://localhost:8000/api/users`, { headers: { "Authorization": `Bearer ${token}` } })
+    const req = await axios.get(`${URL}/api/users`, { headers: { "Authorization": `Bearer ${token}` } })
     const response = req.data
     return response
   }
