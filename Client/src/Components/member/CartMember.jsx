@@ -1,6 +1,6 @@
 import React from 'react'
 
-const cartMember = (props) => {
+const CartMember = (props) => {
   return (
     <>
       <div className='flex flex-col gap-2 relative bg-white shadow-lg py-[3rem] px-8 rounded-xl hover:bg-yellow hover:text-white group after:content-[""] after:absolute after:w-[58%] after:rounded-full after:h-2 after:top-[-3px] after:left-[50%] after:-translate-x-[50%] after:bg-black '>
@@ -48,4 +48,4 @@ const cartMember = (props) => {
   )
 }
 
-export default cartMember
+export default CartMember
