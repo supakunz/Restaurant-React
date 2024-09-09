@@ -5,16 +5,25 @@ const jwt = require("jsonwebtoken"); //สำหรับการเข้า�
 const cookieParser = require("cookie-parser"); //สำหรับเรียกใช้และ save cookie
 const session = require("express-session"); //สำหรับการ login ในเคสที่ใช้ session
 const bcrypt = require("bcrypt"); // สำหรับเข้ารหัส password
+const dotenv = require('dotenv') // env ที่กำหนดค่าต่างได้
+const { Pool } = require('pg') // Module ที่เชื่อมต่อกับ database
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    credentials: true,
-    origin: ["http://localhost:5173"], // **  อนุญาตให้เฉพาะ localhost นี้เท่านั้นในการส่ง req **
-  })
-);
-app.use(cookieParser());
+dotenv.config({ path: './config.env' }) // กำหนด path ที่ env จะดึงค่า --> process.env 
+
+// ** อนุญาติเฉพาะ DOMAIN นี้ **
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: ["http://localhost:5173"], // **  อนุญาตให้เฉพาะ localhost นี้เท่านั้นในการส่ง req **
+//   })
+// );
+
+// ** อนุญาติหมด **
+app.use(cors())
+
+// app.use(cookieParser());
 
 app.use(
   session({
@@ -24,19 +33,19 @@ app.use(
   }),
 );
 
-const port = 8000;
+const port = process.env.PORT;
 const secret = "mysecret";
 
 let conn = null;
 
 // ** function init connection mysql **
 const initMySQL = async () => {
-  conn = await mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "tutorials",
-    port: '8889' // port Mysql
+  conn = await new Pool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT // port Mysql
   });
 };
 
@@ -58,8 +67,11 @@ app.post('/api/register', async (req, res) => {
     }
     //ต้องตรวจสอบว่ามี email ซ้ำกันไหมที่ database โดยมี 2 วิธี (**Mysql**)
     //1. กำหนดที่ database ให้ row นั้นเป็น uniq แล้วจะ hadle ว่า error (แนะนำใช้วิธีนี้ --> ง่ายไม่ต้อง code)
-    //2. email ทั้งหมดใน database มาเทียบว่าซ้ำกันไหม 
-    const response = await conn.query("INSERT INTO users SET ?", userData)
+    //2. email ทั้งหมดใน database มาเทียบว่าซ้ำกันไหม
+    let sql = `INSERT INTO public.users
+            (firstname, lastname, email, phone, password)
+            VALUES('${userData.firstname}', '${userData.lastname}', '${userData.email}', '${userData.phone}','${userData.password}');`
+    const response = await conn.query(sql)
     res.json({ status: "success", data: response[0] })
   } catch (error) {
     console.log('error', error)
@@ -72,8 +84,10 @@ app.post('/api/register', async (req, res) => {
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body
-    const [response] = await conn.query('select * from users where email = ?', email) // ค้นหา email ที่ตรงกันจาก database
-    const userData = response[0]
+    let sql = 'select * from public.users where email = $1'
+    const response = await conn.query(sql, [email]) // ค้นหา email ที่ตรงกันจาก database
+    const userData = response.rows[0]
+    console.log(response)
 
     // compare password
     const match = await bcrypt.compare(password, userData.password) // เทียบ password return true or false ** await ด้วย
@@ -92,7 +106,7 @@ app.post('/api/login', async (req, res) => {
   }
 })
 
-// เมื่อมีการข้อข้อมูลจาก Database
+// เมื่อมีการขอข้อมูลจาก Database
 app.get('/api/users', async (req, res) => {
   try {
     // ** 1.ต้องตรวจสอบว่ามี token ส่งมาไหม **
@@ -104,33 +118,15 @@ app.get('/api/users', async (req, res) => {
       const user = jwt.verify(authToken, secret) // ถ้าไม่ถูกจะ throw error เลย
       console.log(user)
       // มั่นใจได้ว่า token ถูกต้องแล้ว
-      // หรือจะเข็ค email อีกก็ได้
-      const [checkEmail] = await conn.query('select * from users where email = ?', user.email)
-      console.log('test', checkEmail[0])
-      if (!checkEmail) {
+      // หรือจะเข็ค email 
+      let sql = 'select * from public.users where email = $1'
+      const checkEmail = await conn.query(sql, [user.email])
+      console.log('test', checkEmail.rows[0])
+      if (!checkEmail.rows[0]) {
         throw { message: "user not found" }
       }
       // const response = await conn.query('select * from users')
-      res.json({ status: "success", data: checkEmail[0] })
-    }
-  } catch (error) {
-    console.log('error', error)
-    res.status(403).json({ message: 'authentication fail', error })
-  }
-})
-
-// Add Cart
-app.patch('/api/cart', async (req, res) => {
-  try {
-    const cart = req.body.cart
-    const authHeader = req.headers['authorization']
-    if (authHeader) {
-      const authToken = authHeader.split(" ")[1]
-      const user = jwt.verify(authToken, secret)
-      //Add Cart
-      const Addcart = await conn.query(`UPDATE users SET cart = JSON_SET(cart, '$.cart', ?) WHERE email = ?`, [cart, user.email])
-      console.log(req.body)
-      res.json({ message: "success" })
+      res.json({ status: "success", data: checkEmail.rows[0] })
     }
   } catch (error) {
     console.log('error', error)

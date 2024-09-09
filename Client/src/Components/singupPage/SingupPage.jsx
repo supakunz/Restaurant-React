@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { createUser } from '../../store/UserSlice'
+import { toast } from 'react-toastify';
 
 
 const SingupPage = () => {
@@ -14,9 +15,23 @@ const SingupPage = () => {
 
   const onSubmit = (data) => {
     dispatch(createUser(data))
-    reset()
-    navigate('/login')
-    // console.log(data)
+      .then((res) => {
+        if (res.payload.error) {
+          return toast.error('Duplicate email address.', {
+            position: "bottom-left",
+            autoClose: 2000,
+            theme: "colored",
+            pauseOnHover: false,
+          })
+        }
+        navigate('/login')
+        reset()
+        toast.success('Account has been created.', {
+          position: "bottom-left",
+          autoClose: 2000,
+          pauseOnHover: false,
+        })
+      })
   }
 
   return (
