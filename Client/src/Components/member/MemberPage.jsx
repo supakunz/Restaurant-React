@@ -1,5 +1,5 @@
 import React from 'react'
-import CartMember from './cartMember'
+import CartMember from './CartMember'
 import member_packgate from '../assets/memberpack'
 
 const MemberPage = () => {
