@@ -32,9 +32,9 @@ const Popular = () => {
     <>
       <section className='bg-grayWhite h-full py-[100px]'>
         <div className='container-section'>
-          <div className='flex flex-col text-center mb-[100px]'>
-            <p className='text-[20px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Food Menu</p>
-            <h1 className='text-[40px] font-semibold'>Most Popular Items</h1>
+          <div className='flex flex-col text-center mb-[90px] lg:mb-[100px]'>
+            <p className='text-[18px] lg:text-[20px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Food Menu</p>
+            <h1 className='text-[35px] lg:text-[40px] font-semibold'>Most Popular Items</h1>
           </div>
           <Swiper
             slidesPerView={windowWidth}

@@ -49,10 +49,10 @@ const LoginPage = () => {
           </div>
           <div className='flex flex-col gap-6 bg-blackBlue p-7 z-10'>
             <div className='text-center text-white text-[25px]'>
-              <p className='text-yellow text' style={{ fontFamily: "Pacifico" }}>Register</p>
-              <h1 className='text-[40px] font-semibold'>LOGIN</h1>
+              <p className='text-[18px] sm:text-[20px] lg:text-[25px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Register</p>
+              <h1 className='text-[30px] sm:text-[35px] lg:text-[40px] font-semibold'>LOGIN</h1>
             </div>
-            <form className='flex flex-col gap-6' action="">
+            <form className='flex flex-col gap-6 text-[14px] lg:text-[16px]' action="">
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register("email")} type="email" name="email" placeholder='Email...' required />
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="password" {...register("password")} name="password" placeholder='password...' required />
               <button onClick={handleSubmit(onSubmit)} className='p-3 bg-yellow text-white'>Sing Up</button>

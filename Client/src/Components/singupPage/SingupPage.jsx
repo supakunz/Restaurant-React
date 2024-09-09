@@ -30,10 +30,10 @@ const SingupPage = () => {
           </div>
           <div className='flex flex-col gap-6 bg-blackBlue p-7 z-10'>
             <div className='text-center text-white text-[25px]'>
-              <p className='text-yellow text' style={{ fontFamily: "Pacifico" }}>Register</p>
-              <h1 className='text-[40px] font-semibold'>Sing Up</h1>
+              <p className='text-yellow text text-[18px] sm:text-[20px] lg:text-[25px]' style={{ fontFamily: "Pacifico" }}>Register</p>
+              <h1 className='text-[30px] sm:text-[35px] lg:text-[40px] font-semibold'>Sing Up</h1>
             </div>
-            <form className='flex flex-col gap-6' action="">
+            <form className='flex flex-col gap-6 text-[14px] lg:text-[16px]' action="">
               <div className='flex gap-6 mt-4'>
                 <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register('firstname')} type="text" name="firstname" placeholder='Firstname...' required />
                 <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' {...register('lastname')} type="text" name="lastname" placeholder='Lastname...' required />

@@ -62,7 +62,7 @@ const Navbar = () => {
         <div className='flex items-center justify-between container-section'>
           <Link to={'/'} onClick={() => window.scrollTo(0, 0)} className='logo flex items-center gap-2'>
             <img className='w-[55px] lg:w-[60px] ani' src={logo_nav} alt="" />
-            <h1 className='text-[18px] lg:text-[23px] text-white font-semibold'>RESTAURANT</h1>
+            <h1 className='text-[15px] sm:text-[18px] lg:text-[23px] text-white font-semibold'>RESTAURANT</h1>
           </Link>
           <div className="nav-menu flex text-[15px] text-white gap-[10px]">
             <ul className='hidden lg:flex items-center justify-center'>
@@ -103,7 +103,7 @@ const Navbar = () => {
               <Hamburger size={30} toggled={isOpen} toggle={setOpen} onToggle={toggle => toggle ? navMenuRef.current.classList.add('max-h-[550px]') : navMenuRef.current.classList.remove('max-h-[550px]')} />
             </div>
             <div ref={navMenuRef} className='absolute top-[4rem] left-0 w-full flex items-center justify-start bg-blackBlue overflow-hidden max-h-0' style={{ transition: "linear max-height 0.2s" }}>
-              <ul className='flex flex-col p-[42px]'>
+              <ul className='flex flex-col p-[42px] text-[13px] sm:text-[14px] lg:text-[16px]'>
                 <Link to={'/'} onClick={() => window.scrollTo(0, 0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>HOME</Link>
                 <Link to={'/about'} onClick={() => window.scrollTo(0, 0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>ABOUT</Link>
                 <Link to={'/service'} onClick={() => window.scrollTo(0, 0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>SERVICE</Link>
@@ -130,15 +130,15 @@ const Navbar = () => {
               </div>
             ) : (
               <div className='flex gap-[15px] items-center'>
-                <Link to={'/singup'} onClick={() => window.scrollTo(0, 0)} className='p-[7px] lg:p-[10px] bg-yellow border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Singup</Link>
-                <Link to={'/login'} onClick={() => window.scrollTo(0, 0)} className='p-[7px_13px] lg:p-[10px_15px] border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Login</Link>
+                <Link to={'/singup'} onClick={() => window.scrollTo(0, 0)} className='text-[14px] sm:text-[16px] p-[5px_6px] sm:p-[7px] lg:p-[10px] bg-yellow border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Singup</Link>
+                <Link to={'/login'} onClick={() => window.scrollTo(0, 0)} className='text-[14px] sm:text-[16px] p-[5px_11px] sm:p-[7px_13px] lg:p-[10px_15px] border-soLinkd border-[1px] border-yellow rounded-md hover:bg-yellowHover transition duration-300'>Login</Link>
               </div>
             )
             }
           </div>
         </div>
       </nav>
-      <SlideBar toggle={slidebar} />
+      <SlideBar toggle={slidebar} setToggle={setSlidebar} />
     </>
   )
 }

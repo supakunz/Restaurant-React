@@ -83,7 +83,7 @@ app.post('/api/login', async (req, res) => {
     }
 
     // // create jwt token
-    const token = jwt.sign({ email, role: "user" }, secret, { expiresIn: '1h' }) // ( payload , secretkey, option)
+    const token = jwt.sign({ email, role: "user" }, secret, { expiresIn: '5h' }) // ( payload , secretkey, option)
 
     res.json({ message: "login success", token })
   } catch (error) {

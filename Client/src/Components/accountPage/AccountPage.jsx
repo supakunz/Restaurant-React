@@ -28,7 +28,7 @@ const AccountPage = () => {
     <>
       <section>
         <div className='container-section py-[100px]'>
-          <div className='grid grid-cols-1 md:grid-cols-[35%_62%] gap-10'>
+          <div className='grid grid-cols-1 md:grid-cols-[35%_62%] gap-10 text-[14px] sm:text-[15px] lg:text-[16px]'>
             <div className='bg-blackBlue p-[33px_25px] rounded-lg'>
               <div className='flex justify-center'>
                 <img className='max-w-[180px]' src={logo_image} alt="" />

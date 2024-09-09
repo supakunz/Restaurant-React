@@ -32,8 +32,8 @@ const CommentPage = ({ space }) => {
       <section className={`bg-grayWhite pb-[100px] ${space ? 'pt-[100px]' : null}`}>
         <div className='container-section'>
           <div className='flex flex-col text-center mb-[60px]'>
-            <p className='text-[20px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Testimonial</p>
-            <h1 className='text-[40px] font-semibold'>Our Clients Say!!!</h1>
+            <p className='text-[18px] lg:text-[20px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Testimonial</p>
+            <h1 className='text-[35px] lg:text-[40px] font-semibold'>Our Clients Say!!!</h1>
           </div>
           <Swiper
             slidesPerView={windowWidth}

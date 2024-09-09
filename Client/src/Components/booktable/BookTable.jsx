@@ -22,13 +22,13 @@ const BookTable = () => {
               <img className='h-full object-cover' src={video_image} alt="" />
             </div>
             <div className='absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] cursor-pointer z-10'>
-              <div onClick={handlePlay} className='animationBtnPlay'><i class='bx bxs-right-arrow p-5 rounded-full bg-yellow text-[45px]'></i></div>
+              <div onClick={handlePlay} className='animationBtnPlay'><i class='bx bxs-right-arrow p-4 sm:p-5 rounded-full bg-yellow text-[30px] sm:text-[45px]'></i></div>
             </div>
           </div>
-          <div className='flex flex-col gap-6 bg-blackBlue p-7 z-10'>
+          <div className='flex flex-col gap-6 bg-blackBlue p-7 z-10 text-[14px] lg:text-[16px]'>
             <div className='text-center text-white text-[25px]'>
-              <p className='text-yellow text' style={{ fontFamily: "Pacifico" }}>Reservation</p>
-              <h1 className='text-[40px] font-semibold'>Book A Table Online</h1>
+              <p className='text-[18px] sm:text-[20px] lg:text-[25px] text-yellow text' style={{ fontFamily: "Pacifico" }}>Reservation</p>
+              <h1 className='text-[30px] sm:text-[35px] lg:text-[40px] font-semibold'>Book A Table Online</h1>
             </div>
             <div className='flex gap-6 mt-4'>
               <input className='p-2 w-full focus:border-yellow border-[1px] border-solid focus:outline-none' type="text" name="" placeholder='Your name...' />

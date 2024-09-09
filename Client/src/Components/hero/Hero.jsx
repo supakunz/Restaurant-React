@@ -12,14 +12,14 @@ const Hero = (props) => {
               <h1 className='text-[42px] sm:text-[53px] lg:text-[65px] font-semibold leading-tight text-white'>{props.content}</h1>
               <p className='text-[13px] sm:text-[14px] lg:text-[16px] text-white leading-relaxed mt-2'>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat ame</p>
               <div className="button-content flex gap-5 mt-5 text-white justify-center md:justify-start">
-                <Link to={props.link.to_1} onClick={() => window.scrollTo(0, 0)} className='p-[15px_30px] bg-yellow text-[15px] lg:text-[16px] rounded-md hover:bg-yellowHover transition duration-300'>{props.button.text_1}</Link>
-                <Link to={props.link.to_2} onClick={() => window.scrollTo(0, 0)} className='p-[15px_30px] border-solid border-yellow border-[1px] text-[15px] lg:text-[16px] rounded-md hover:bg-yellowHover transition duration-300'>{props.button.text_2}</Link>
+                <Link to={props.link.to_1} onClick={() => window.scrollTo(0, 0)} className='p-[13px_20px] lg:p-[15px_30px] bg-yellow text-[15px] lg:text-[16px] rounded-md hover:bg-yellowHover transition duration-300'>{props.button.text_1}</Link>
+                <Link to={props.link.to_2} onClick={() => window.scrollTo(0, 0)} className='p-[13px_20px] lg:p-[15px_30px] border-solid border-yellow border-[1px] text-[15px] lg:text-[16px] rounded-md hover:bg-yellowHover transition duration-300'>{props.button.text_2}</Link>
               </div>
             </div>
           </div>
           <div className="right-content flex-1 flex justify-center items-center">
             <div className="image-hero flex items-center justify-center">
-              <img className='w-[300px] md:w-full object-cover animate-spin-slow' src={props.banner.banner_image} alt="" />
+              <img className='w-[270px] sm:w-[300px] md:w-full object-cover animate-spin-slow' src={props.banner.banner_image} alt="" />
             </div>
           </div>
         </div>
