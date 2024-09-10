@@ -104,22 +104,22 @@ const Navbar = () => {
             </div>
             <div ref={navMenuRef} className='absolute top-[4rem] left-0 w-full flex items-center justify-start bg-blackBlue overflow-hidden max-h-0' style={{ transition: "linear max-height 0.2s" }}>
               <ul className='flex flex-col p-[42px] text-[13px] sm:text-[14px] lg:text-[16px]'>
-                <Link to={'/'} onClick={() => window.scrollTo(0, 0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>HOME</Link>
-                <Link to={'/about'} onClick={() => window.scrollTo(0, 0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>ABOUT</Link>
-                <Link to={'/service'} onClick={() => window.scrollTo(0, 0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>SERVICE</Link>
-                <Link to={'/menu'} onClick={() => window.scrollTo(0, 0)} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>MENU</Link>
+                <Link to={'/'} onClick={() => { window.scrollTo(0, 0); setOpen(false); navMenuRef.current.classList.remove('max-h-[550px]'); }} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>HOME</Link>
+                <Link to={'/about'} onClick={() => { window.scrollTo(0, 0); setOpen(false); navMenuRef.current.classList.remove('max-h-[550px]'); }} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>ABOUT</Link>
+                <Link to={'/service'} onClick={() => { window.scrollTo(0, 0); setOpen(false); navMenuRef.current.classList.remove('max-h-[550px]'); }} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>SERVICE</Link>
+                <Link to={'/menu'} onClick={() => { window.scrollTo(0, 0); setOpen(false); navMenuRef.current.classList.remove('max-h-[550px]'); }} className='cursor-pointer mb-7 hover:text-yellow transition duration-300'>MENU</Link>
                 <li className='flex items-start cursor-pointer relative right-2 mb-7 group' onClick={handleToggle}>
                   <i ref={arrowRef} class="bx bx-chevron-right text-[18px] mt-[2px] transition duration-300 group-hover:text-yellow"></i>
                   <span className='flex flex-col'>
                     <p className='group-hover:text-yellow transition duration-300'>PAGES</p>
                     <ul ref={miniMenuRef} className='pl-3 flex flex-col gap-6 cursor-pointer overflow-hidden max-h-0' style={{ transition: "linear max-height 0.2s" }}>
-                      <Link to={'/ourteam'} onClick={() => window.scrollTo(0, 0)} className='mt-7 hover:text-yellow transition duration-300'>OurTeam</Link>
-                      <Link to={'/testimonial'} onClick={() => window.scrollTo(0, 0)} className='hover:text-yellow transition duration-300'>Testimonial</Link>
-                      <Link to={'/booking'} onClick={() => window.scrollTo(0, 0)} className='hover:text-yellow transition duration-300'>Booking</Link>
+                      <Link to={'/ourteam'} onClick={() => { window.scrollTo(0, 0); setOpen(false); navMenuRef.current.classList.remove('max-h-[550px]'); }} className='mt-7 hover:text-yellow transition duration-300'>OurTeam</Link>
+                      <Link to={'/testimonial'} onClick={() => { window.scrollTo(0, 0); setOpen(false); navMenuRef.current.classList.remove('max-h-[550px]'); }} className='hover:text-yellow transition duration-300'>Testimonial</Link>
+                      <Link to={'/booking'} onClick={() => { window.scrollTo(0, 0); setOpen(false); navMenuRef.current.classList.remove('max-h-[550px]'); }} className='hover:text-yellow transition duration-300'>Booking</Link>
                     </ul>
                   </span>
                 </li>
-                <Link to={'/contact'} onClick={() => window.scrollTo(0, 0)} className='cursor-pointer hover:text-yellow transition duration-300'>CONTACT</Link>
+                <Link to={'/contact'} onClick={() => { window.scrollTo(0, 0); setOpen(false); navMenuRef.current.classList.remove('max-h-[550px]'); }} className='cursor-pointer hover:text-yellow transition duration-300'>CONTACT</Link>
               </ul>
             </div>
             {checkToken || localtoken ? (

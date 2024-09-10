@@ -21,19 +21,7 @@ const LoginPage = () => {
     if (token) {
       navigate('/');
       window.scrollTo(0, 0);
-      toast.success('Login successful', {
-        position: "bottom-left",
-        autoClose: 2000,
-        pauseOnHover: false,
-        // theme: "colored",
-      })
     } else if (error) {
-      toast.error(error, {
-        position: "bottom-left",
-        autoClose: 2000,
-        theme: "colored",
-        pauseOnHover: false,
-      })
       reset()
     }
   }, [token, error])

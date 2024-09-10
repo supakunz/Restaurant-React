@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 const URL = import.meta.env.VITE_API_URL
 
@@ -54,7 +55,10 @@ const UserSlice = createSlice({
     builder
       .addMatcher(
         (action) => action.type.endsWith("/pending"),
-        (state) => {
+        (state, action) => {
+          if (action.type.includes("checkUser")) {
+            toast.loading('Please wait...', { position: "bottom-left" })
+          }
           state.loading = true;
           state.error = null;
         },
@@ -68,6 +72,12 @@ const UserSlice = createSlice({
             // console.log(current(state))
           }
           if (action.type.includes("checkUser")) {
+            toast.dismiss();
+            toast.success('Login successful', {
+              position: "bottom-left",
+              autoClose: 2000,
+              pauseOnHover: false,
+            })
             state.token = action.payload.token
             localStorage.setItem('token', state.token)
           }
@@ -85,9 +95,23 @@ const UserSlice = createSlice({
           state.loading = false;
           state.error = action.error.message
           if (action.error.message === "Request failed with status code 401") {
+            toast.dismiss();
+            toast.error('Invalid email Please try again.', {
+              position: "bottom-left",
+              autoClose: 2000,
+              theme: "colored",
+              pauseOnHover: false,
+            })
             state.error = 'Invalid email Please try again.'
           }
           if (action.error.message === "Request failed with status code 400") {
+            toast.dismiss();
+            toast.error('Invalid password Please try again.', {
+              position: "bottom-left",
+              autoClose: 2000,
+              theme: "colored",
+              pauseOnHover: false,
+            })
             state.error = 'Invalid password Please try again.'
           }
         }
