@@ -1,5 +1,5 @@
 # Restaurant
-E-commerce Website is developed using ReactJS TailwindCSS for the client and NodeJS MongoDB for the server.
+Restaurant Website is developed using ReactJS TailwindCSS Redux Toolkit for the client and NodeJS Supabase for the server.
 
 https://github.com/user-attachments/assets/253e24fb-e4ed-4512-b321-7451d238cf99
 
