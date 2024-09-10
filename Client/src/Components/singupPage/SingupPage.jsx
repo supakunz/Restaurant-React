@@ -1,5 +1,5 @@
 import React from 'react'
-import show_image from '../assets/image/aboutImg1_4.jpg'
+import show_image from '../assets/image/aboutImg1_4.webp'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'

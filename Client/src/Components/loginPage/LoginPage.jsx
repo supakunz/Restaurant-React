@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import show_image from '../assets/image/aboutImg1_1.jpg'
+import show_image from '../assets/image/aboutImg1_1.webp'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'

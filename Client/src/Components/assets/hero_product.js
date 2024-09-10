@@ -1,9 +1,9 @@
-import bg_image_1 from '../assets/image/banner1.jpg'
-import banner_image_1 from '../assets/image/imgSpinBanner1.png'
-import bg_image_2 from '../assets/image/banner2.jpg'
-import banner_image_2 from '../assets/image/imgSpinBanner2.png'
-import bg_image_3 from '../assets/image/banner3.jpg'
-import banner_image_3 from '../assets/image/imgSpinBanner3.png'
+import bg_image_1 from '../assets/image/banner1.webp'
+import banner_image_1 from '../assets/image/imgSpinBanner1.webp'
+import bg_image_2 from '../assets/image/banner2.webp'
+import banner_image_2 from '../assets/image/imgSpinBanner2.webp'
+import bg_image_3 from '../assets/image/banner3.webp'
+import banner_image_3 from '../assets/image/imgSpinBanner3.webp'
 
 
 let hero_product = [
