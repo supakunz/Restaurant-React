@@ -21,10 +21,10 @@ https://github.com/user-attachments/assets/253e24fb-e4ed-4512-b321-7451d238cf99
   <i>Frontend :</i>
   <ul>
       <li>ReactJS</li>
-      <li>Redux Toolkit</li>
       <li>Axios</li>
       <li>Slick</li>
       <li>TailwindCSS</li>
+      <li>Redux Toolkit</li>
   </ul>
   
   <i>Backend :</i>
