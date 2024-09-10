@@ -39,13 +39,13 @@ https://github.com/user-attachments/assets/253e24fb-e4ed-4512-b321-7451d238cf99
 1. Clone this repository :
 
 ```bash
-git clone https://github.com/SupakunZ/E-commerce.git
+https://github.com/SupakunZ/Restaurant-Website.git
 ```
 
 2. Navigate to the project folder and install dependencies :
 
 ```
-cd E-commerce
+cd Restaurant-Website
 npm install
 ```
 
