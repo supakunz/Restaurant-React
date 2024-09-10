@@ -1,1 +1,1 @@
-https://main--restaurantz.netlify.app/
+https://restaurantz.netlify.app/
