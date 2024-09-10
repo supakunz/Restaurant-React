@@ -56,7 +56,7 @@ const UserSlice = createSlice({
       .addMatcher(
         (action) => action.type.endsWith("/pending"),
         (state, action) => {
-          if (action.type.includes("checkUser")) {
+          if (action.type.includes("checkUser") || action.type.includes("createUser")) {
             toast.loading('Please wait...', { position: "bottom-left" })
           }
           state.loading = true;
@@ -67,12 +67,12 @@ const UserSlice = createSlice({
         (action) => action.type.endsWith("/fulfilled"),
         (state, action) => {
           state.loading = false;
+          toast.dismiss();
           if (action.type.includes("createUser")) {
             state.user = action.payload
             // console.log(current(state))
           }
           if (action.type.includes("checkUser")) {
-            toast.dismiss();
             toast.success('Login successful', {
               position: "bottom-left",
               autoClose: 2000,
