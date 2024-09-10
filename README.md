@@ -3,24 +3,25 @@ E-commerce Website is developed using ReactJS TailwindCSS for the client and Nod
 
 https://github.com/user-attachments/assets/253e24fb-e4ed-4512-b321-7451d238cf99
 
-## 🍄 Live Demo 
-<a href='https://restaurantz.netlify.app/' target="_blank">E-commerce</a>
+## 🌈 Live Demo 
+<a href='https://restaurantz.netlify.app/' target="_blank">Restaurant</a>
 
-## 🔥 Features
-
+## 🌏 Features
   <ul>
-      <li>Website has beautiful effects.</li>
-      <li>Authentication system</li>
-      <li>Access control by API</li>
-      <li>Smooth scroll to top</li>
-      <li>Responsive with all devices</li>
+      <li>Show user information.</li>
+      <li>Authentication system.</li>
+      <li>Access control by API.</li>
+      <li>Use Supabase Database to get or store Data.</li>
+      <li>Token for authentication before making a transaction.</li>
+      <li>Show quantity food menu in cart and sub total.</li>
+      <li>Can increase or decrease the number of food items.</li>
   </ul>
 
-## 🍀 Technologyies Used
+## 🔥 Technologyies Used
   <i>Frontend :</i>
   <ul>
       <li>ReactJS</li>
-      <li>AOS</li>  
+      <li>Redux Toolkit</li>
       <li>Axios</li>
       <li>Slick</li>
       <li>TailwindCSS</li>
@@ -30,11 +31,11 @@ https://github.com/user-attachments/assets/253e24fb-e4ed-4512-b321-7451d238cf99
   <ul>
       <li>NodeJS</li>
       <li>ExpressJS</li>  
-      <li>MongoDB</li>
+      <li>Supabase</li>
   </ul>
 
 
-## ❄️ Installation
+## 👽 Installation
 
 1. Clone this repository :
 
