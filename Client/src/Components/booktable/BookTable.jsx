@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import video_image from '../assets/image/aboutImg1_3.jpg'
+import video_image from '../assets/image/aboutImg1_3.webp'
 import video_cooking from '../assets/video/cooking.mp4'
 
 const BookTable = () => {

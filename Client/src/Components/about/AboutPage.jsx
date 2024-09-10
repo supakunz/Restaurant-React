@@ -1,8 +1,8 @@
 import React from 'react'
-import about_image_1 from '../assets/image/aboutImg1_1.jpg'
-import about_image_2 from '../assets/image/aboutImg1_2.jpg'
-import about_image_3 from '../assets/image/aboutImg1_3.jpg'
-import about_image_4 from '../assets/image/aboutImg1_4.jpg'
+import about_image_1 from '../assets/image/aboutImg1_1.webp'
+import about_image_2 from '../assets/image/aboutImg1_2.webp'
+import about_image_3 from '../assets/image/aboutImg1_3.webp'
+import about_image_4 from '../assets/image/aboutImg1_4.webp'
 import { Link } from 'react-router-dom'
 
 const AboutPage = () => {

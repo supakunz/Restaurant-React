@@ -1,5 +1,5 @@
 import React from 'react'
-import bg_image from '../assets/image/aboutImg1_3.jpg'
+import bg_image from '../assets/image/aboutImg1_3.webp'
 
 const Header = (props) => {
   return (
