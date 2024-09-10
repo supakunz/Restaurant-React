@@ -60,7 +60,7 @@ const CartPage = () => {
                     <td className='border border-[#cdcdcd]'>
                       <div className='flex justify-center items-center'>
                         <div className='flex w-[9rem] justify-between items-center border-solid border-[1px] text-[14px] lg:text-[16px]'>
-                          <p onClick={() => dispatch(removeCart(index))} className='p-[5px_13px] bg-yellow cursor-pointer hover:bg-yellowHover'>-</p>
+                          <p onClick={() => dispatch(removeCart(item.name))} className='p-[5px_13px] bg-yellow cursor-pointer hover:bg-yellowHover'>-</p>
                           <p>{cart.filter((data) => data.name == item.name).length}</p>
                           <p onClick={() => dispatch(addCart(item))} className='p-[5px_10px] bg-yellow cursor-pointer hover:bg-yellowHover'>+</p>
                         </div>
@@ -69,7 +69,7 @@ const CartPage = () => {
                     <td className='border border-[#cdcdcd] text-[14px] lg:text-[16px]'>{(Number(item.price) * (cart.filter((data) => data.name == item.name).length)).toFixed(2)}$</td>
                     <td className='border border-[#cdcdcd]'>
                       <div>
-                        <i onClick={() => dispatch(removeCart(index))} className='bx bxs-trash bg-red-500 text-white text-[20px] lg:text-[25px] p-2 lg:p-[0.6rem] rounded-md cursor-pointer hover:bg-red-400'></i>
+                        <i onClick={() => dispatch(removeCart(item.name))} className='bx bxs-trash bg-red-500 text-white text-[20px] lg:text-[25px] p-2 lg:p-[0.6rem] rounded-md cursor-pointer hover:bg-red-400'></i>
                       </div>
                     </td>
                   </tr>
