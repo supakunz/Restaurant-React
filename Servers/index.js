@@ -7,6 +7,7 @@ const session = require("express-session"); //สำหรับการ login 
 const bcrypt = require("bcrypt"); // สำหรับเข้ารหัส password
 const dotenv = require('dotenv') // env ที่กำหนดค่าต่างได้
 const { Pool } = require('pg') // Module ที่เชื่อมต่อกับ database
+const redis = require('redis')
 
 const app = express();
 app.use(express.json());
@@ -33,6 +34,20 @@ app.use(
   }),
 );
 
+//** Redis Connect **
+const client = redis.createClient({
+  // data จาก Redis could
+  password: 'WzLgPDOPmk6kgAUG1njXKlXb2iPF8SsQ',
+  socket: {
+      host: 'redis-18196.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com',
+      port: 18196
+  }
+});
+
+// ** Log Conneneted Redis **
+client.on("connect", () => console.log("Redis connected"))
+client.on("error", (err) => console.error("Redis Client Error", err));
+
 const port = process.env.PORT;
 const secret = "mysecret";
 
@@ -50,6 +65,26 @@ const initMySQL = async () => {
 };
 
 /*-------- เราจะแก้ไข code ที่อยู่ตรงกลาง ---------- */
+
+app.get('/api/getuser', async (req,res) => {
+  try {
+    const data = await client.get("restaurant-user")
+    if (data) {
+      const response = await JSON.parse(data)
+      const user = response.filter((val) => val.email == 'gunbyboy@gmail.com')
+      console.log(user)
+      res.json({message:"Get data on Redis"})
+    } else {
+      let sql = 'select * from public.users'
+      const getuser = await conn.query(sql)
+      await client.setEx("restaurant-user",3600,JSON.stringify(getuser.rows))
+      res.json({message:"Cache data success"})
+    }
+  } catch (error) {
+    console.log("error", error)
+    res.status(500).json({message:error})
+  }
+})
 
 // Register
 app.post('/api/register', async (req, res) => {
@@ -72,6 +107,10 @@ app.post('/api/register', async (req, res) => {
             (firstname, lastname, email, phone, password)
             VALUES('${userData.firstname}', '${userData.lastname}', '${userData.email}', '${userData.phone}','${userData.password}');`
     const response = await conn.query(sql)
+
+    // ** Delete Cache data on Redis **
+    await client.del("restaurant-user")
+
     res.json({ status: "success", data: response[0] })
   } catch (error) {
     console.log('error', error)
@@ -84,11 +123,27 @@ app.post('/api/register', async (req, res) => {
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body
-    let sql = 'select * from public.users where email = $1'
-    const response = await conn.query(sql, [email]) // ค้นหา email ที่ตรงกันจาก database
-    const userData = response.rows[0]
-    console.log(response)
+    const data = await client.get("restaurant-user")
+    let userData;
+    if (data) {
+    
+      const response = await JSON.parse(data)
+      const user = response.filter((val) => val.email == email)
+      userData = user[0]
+    } else {
+      //กรณีไม่มี data ที่ cache ไว้
 
+      //1.ดึงค่าจาก email จาก MongoDB
+      let sql = 'select * from public.users where email = $1'
+      const response = await conn.query(sql, [email]) // ค้นหา email ที่ตรงกันจาก database
+      userData = response.rows[0]
+
+      //2.ดึงค่าจาก MongoDB มา cache บน Redis
+      let sql2 = 'select * from public.users'
+      const getuser = await conn.query(sql2)
+      await client.setEx("restaurant-user",3600,JSON.stringify(getuser.rows))
+    }
+    
     // compare password
     const match = await bcrypt.compare(password, userData.password) // เทียบ password return true or false ** await ด้วย
     if (!match) {
@@ -111,6 +166,8 @@ app.get('/api/users', async (req, res) => {
   try {
     // ** 1.ต้องตรวจสอบว่ามี token ส่งมาไหม **
     const authHeader = req.headers['authorization'] // ส่งมากับ header --> ชื่อ authorization
+    const data = await client.get("restaurant-user")
+    let checkEmail;
     if (authHeader) {
       authToken = authHeader.split(" ")[1]
       console.log("Token :", authToken)
@@ -119,14 +176,23 @@ app.get('/api/users', async (req, res) => {
       console.log(user)
       // มั่นใจได้ว่า token ถูกต้องแล้ว
       // หรือจะเข็ค email 
-      let sql = 'select * from public.users where email = $1'
-      const checkEmail = await conn.query(sql, [user.email])
-      console.log('test', checkEmail.rows[0])
-      if (!checkEmail.rows[0]) {
+      if (data) {
+        //กรณีที่มี data ที่ cache ไว้ให้ดึงค่ามา
+        const response = await JSON.parse(data)
+        const userdata = response.filter((val) => val.email == user.email)
+        checkEmail = userdata[0]
+      } else {
+        //กรณีไม่มีให้ดึงค่าจาก database
+        let sql = 'select * from public.users where email = $1'
+        const response = await conn.query(sql, [user.email])
+        checkEmail = response.rows[0]
+      }
+
+      if (!checkEmail) {
         throw { message: "user not found" }
       }
       // const response = await conn.query('select * from users')
-      res.json({ status: "success", data: checkEmail.rows[0] })
+      res.json({ status: "success", data: checkEmail})
     }
   } catch (error) {
     console.log('error', error)
@@ -139,5 +205,6 @@ app.get('/api/users', async (req, res) => {
 // Listen
 app.listen(port, async () => {
   await initMySQL(); //** Connect Database **/
+  await client.connect();
   console.log("Server started at port 8000");
 });
